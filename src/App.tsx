@@ -51,9 +51,44 @@ export default function App() {
       if (res.ok) {
         const data = await res.json();
         setStatus(data);
+      } else {
+        // Fallback for static hosting (e.g. GitHub Pages)
+        setStatus({
+          discogsConfigured: false,
+          spotifyConfigured: false,
+          ytmusicConfigured: false,
+          cachedCount: 3,
+          unmatchedCount: 1,
+          config: {
+            discogsUsername: '',
+            hasDiscogsToken: false,
+            hasSpotifyCredentials: false,
+            hasSpotifyRefreshToken: false,
+            spotifyMasterPlaylistId: '37i9dQZF1DXcBWIGoYBM5M',
+            spotifyRecentlyAddedPlaylistId: '37i9dQZF1DX0XUsuxWHRQd',
+            spotifyGenrePlaylists: {
+              Electronic: '37i9dQZF1DXdLEN7aqioXM',
+              Rock: '37i9dQZF1DWXRqgorJj26U',
+              Jazz: '37i9dQZF1DXbITWG1ZJKYt',
+              'Hip-Hop': '37i9dQZF1DX0XUsuxWHRQd',
+              'Funk / Soul': '37i9dQZF1DWWvh2zOz19qC',
+              Classical: '37i9dQZF1DWWEWGlCnxtYF',
+            },
+            ytmusicAuthFile: 'headers_auth.json',
+            ytmusicMasterPlaylistId: 'PLrAlJpS2-7eI1i7s0',
+            genreMap: {
+              Electronic: ['Electronic', 'Synthesizer', 'House', 'Techno', 'Ambient', 'Electro', 'Downtempo', 'Trance', 'IDM'],
+              Rock: ['Rock', 'Indie Rock', 'Alternative Rock', 'Punk', 'Metal', 'Psychedelic Rock', 'Hard Rock', 'Post-Punk'],
+              Jazz: ['Jazz', 'Hard Bop', 'Fusion', 'Post Bop', 'Free Jazz', 'Modal', 'Bop', 'Cool Jazz'],
+              'Hip-Hop': ['Hip Hop', 'Boom Bap', 'Trap', 'Conscious', 'Trip Hop', 'Instrumental Hip-Hop'],
+              'Funk / Soul': ['Funk', 'Soul', 'Disco', 'Rhythm & Blues', 'Neo Soul', 'Afrobeat'],
+              Classical: ['Classical', 'Baroque', 'Contemporary', 'Romantic', 'Modern Classical', 'Minimalism'],
+            },
+          },
+        });
       }
-    } catch (err) {
-      console.error('Failed to load status:', err);
+    } catch {
+      // Offline fallback
     }
   }, []);
 
@@ -229,9 +264,19 @@ export default function App() {
     }
   };
 
-  // Download project ZIP
-  const handleDownloadZip = () => {
-    window.location.href = '/api/download-zip';
+  // Download project ZIP (works both with Express backend and on static GitHub Pages)
+  const handleDownloadZip = async () => {
+    try {
+      const res = await fetch('/api/download-zip');
+      if (res.ok) {
+        window.location.href = '/api/download-zip';
+        return;
+      }
+    } catch {
+      // Fallback to client-side generation
+    }
+    const { downloadProjectZipClientSide } = await import('./lib/exportZip');
+    await downloadProjectZipClientSide();
   };
 
   return (
