@@ -49,23 +49,72 @@ export const SpotifyTokenGeneratorModal: React.FC<SpotifyTokenGeneratorModalProp
 
     setLoading(true);
     try {
-      const res = await fetch('/api/spotify/exchange-token', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          clientId: clientId.trim(),
-          clientSecret: clientSecret.trim(),
-          redirectUri: redirectUri.trim(),
-          codeOrUrl: codeOrUrl.trim(),
-        }),
-      });
-
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to exchange token with Spotify.');
+      // 1. Extract code if full URL was pasted
+      let authCode = codeOrUrl.trim();
+      if (authCode.includes('code=')) {
+        try {
+          const parsed = new URL(authCode.startsWith('http') ? authCode : `https://dummy.com/${authCode}`);
+          const extracted = parsed.searchParams.get('code');
+          if (extracted) authCode = extracted;
+        } catch {
+          const match = authCode.match(/[?&]code=([^&#]+)/);
+          if (match) authCode = decodeURIComponent(match[1]);
+        }
       }
 
-      setRefreshToken(data.refreshToken);
+      // 2. Call Spotify OAuth token endpoint directly (works on GitHub Pages and mobile)
+      const basicAuth = btoa(`${clientId.trim()}:${clientSecret.trim()}`);
+      const params = new URLSearchParams({
+        grant_type: 'authorization_code',
+        code: authCode,
+        redirect_uri: redirectUri.trim(),
+      });
+
+      let tokenData: { refresh_token?: string; refreshToken?: string; error_description?: string; error?: string } | null = null;
+
+      try {
+        const directRes = await fetch('https://accounts.spotify.com/api/token', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Basic ${basicAuth}`,
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: params.toString(),
+        });
+
+        tokenData = await directRes.json();
+        if (!directRes.ok) {
+          throw new Error(tokenData?.error_description || tokenData?.error || 'Spotify rejected the token exchange.');
+        }
+      } catch (directErr) {
+        // Fallback to local server if direct request was blocked
+        try {
+          const backendRes = await fetch('/api/spotify/exchange-token', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              clientId: clientId.trim(),
+              clientSecret: clientSecret.trim(),
+              redirectUri: redirectUri.trim(),
+              codeOrUrl: authCode,
+            }),
+          });
+          if (backendRes.ok && backendRes.headers.get('content-type')?.includes('application/json')) {
+            tokenData = await backendRes.json();
+          } else {
+            throw directErr;
+          }
+        } catch {
+          throw directErr;
+        }
+      }
+
+      const receivedToken = tokenData?.refresh_token || tokenData?.refreshToken;
+      if (!receivedToken) {
+        throw new Error('Spotify did not return a refresh token. Make sure the code is freshly generated.');
+      }
+
+      setRefreshToken(receivedToken);
     } catch (err: unknown) {
       console.error(err);
       setErrorMsg(err instanceof Error ? err.message : 'Token exchange failed.');
