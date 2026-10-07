@@ -66,6 +66,17 @@ export const SyncModal: React.FC<SyncModalProps> = ({
           </div>
         )}
 
+        {/* Fallback View if no result yet */}
+        {!loading && !result && (
+          <div className="py-10 text-center space-y-3">
+            <AlertTriangle className="mx-auto w-8 h-8 text-amber-400" />
+            <div className="text-sm font-semibold text-white">Pipeline Execution Prepared</div>
+            <p className="text-xs text-neutral-400 max-w-sm mx-auto">
+              Calculates collection diff, matches genres, and prepares Position 0 playlist additions.
+            </p>
+          </div>
+        )}
+
         {/* Results View */}
         {!loading && result && (
           <div className="space-y-5 overflow-y-auto pr-1">
@@ -139,19 +150,33 @@ export const SyncModal: React.FC<SyncModalProps> = ({
         )}
 
         {/* Footer */}
-        <div className="pt-3 border-t border-neutral-800 flex items-center justify-between">
-          <div className="text-[11px] text-neutral-500">
+        <div className="pt-3 border-t border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="text-[11px] text-neutral-400">
             {dryRun
               ? 'Simulation finished. Ready to run live with streaming playlists.'
-              : 'Sync complete. Playlists updated on Spotify & YouTube Music.'}
+              : 'Simulation complete. To run with live Spotify/YouTube accounts, trigger the GitHub Action.'}
           </div>
 
-          <button
-            onClick={onClose}
-            className="px-4 py-1.5 text-xs font-medium text-black bg-white hover:bg-neutral-200 rounded-md transition-colors"
-          >
-            Done
-          </button>
+          <div className="flex items-center gap-2">
+            {!dryRun && (
+              <a
+                href="https://github.com/qualitycoding/Playlists/actions/workflows/weekly_sync.yml"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-emerald-400 bg-emerald-950/60 border border-emerald-700 rounded-md hover:bg-emerald-900 transition-colors"
+              >
+                <span>Trigger Live in GitHub Actions</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            )}
+
+            <button
+              onClick={onClose}
+              className="px-4 py-1.5 text-xs font-medium text-black bg-white hover:bg-neutral-200 rounded-md transition-colors"
+            >
+              Done
+            </button>
+          </div>
         </div>
       </div>
     </div>
