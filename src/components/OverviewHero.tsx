@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Disc, Sparkles, RefreshCw, CheckCircle2, ArrowRight, Settings, Radio } from 'lucide-react';
+import { Disc, Sparkles, RefreshCw, CheckCircle2, ArrowRight, Settings, Radio, KeyRound } from 'lucide-react';
 import { SystemStatus } from '../types';
+import { SpotifyTokenGeneratorModal } from './SpotifyTokenGeneratorModal';
 
 interface OverviewHeroProps {
   status: SystemStatus | null;
@@ -18,6 +19,7 @@ export const OverviewHero: React.FC<OverviewHeroProps> = ({
   onNavigateTab,
 }) => {
   const [showConfigModal, setShowConfigModal] = useState(false);
+  const [showTokenGeneratorModal, setShowTokenGeneratorModal] = useState(false);
   const [discogsUsername, setDiscogsUsername] = useState(status?.config?.discogsUsername || '');
   const [discogsToken, setDiscogsToken] = useState('');
   const [spotifyClientId, setSpotifyClientId] = useState('');
@@ -331,12 +333,22 @@ export const OverviewHero: React.FC<OverviewHeroProps> = ({
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-neutral-400 mb-1">SPOTIFY_REFRESH_TOKEN</label>
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="block text-xs font-medium text-neutral-400">SPOTIFY_REFRESH_TOKEN</label>
+                    <button
+                      type="button"
+                      onClick={() => setShowTokenGeneratorModal(true)}
+                      className="text-[11px] text-emerald-400 hover:underline flex items-center gap-1 font-medium"
+                    >
+                      <KeyRound className="w-3 h-3" />
+                      <span>Generate on Mobile / Android</span>
+                    </button>
+                  </div>
                   <input
                     type="password"
                     value={spotifyRefreshToken}
                     onChange={(e) => setSpotifyRefreshToken(e.target.value)}
-                    placeholder="Generated via setup_spotify_auth.py"
+                    placeholder="Paste refresh token or generate above"
                     className="w-full rounded-md border border-neutral-800 bg-neutral-900 px-3 py-2 text-xs text-white placeholder-neutral-500 focus:border-emerald-400 focus:outline-none"
                   />
                 </div>
@@ -374,6 +386,14 @@ export const OverviewHero: React.FC<OverviewHeroProps> = ({
           <span>Configuration saved successfully.</span>
         </div>
       )}
+
+      {/* Spotify Token Generator Modal (Mobile & Android friendly) */}
+      <SpotifyTokenGeneratorModal
+        isOpen={showTokenGeneratorModal}
+        onClose={() => setShowTokenGeneratorModal(false)}
+        initialClientId={spotifyClientId}
+        initialClientSecret={spotifyClientSecret}
+      />
     </div>
   );
 };

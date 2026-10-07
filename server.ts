@@ -232,6 +232,76 @@ app.post('/api/config', (req: Request, res: Response) => {
   res.json({ success: true, message: 'Configuration updated successfully.' });
 });
 
+// API: Exchange Spotify authorization code for long-lived Refresh Token
+app.post('/api/spotify/exchange-token', async (req: Request, res: Response) => {
+  const { clientId, clientSecret, redirectUri, codeOrUrl } = req.body || {};
+
+  if (!clientId || !clientSecret || !redirectUri || !codeOrUrl) {
+    return res.status(400).json({ error: 'clientId, clientSecret, redirectUri, and codeOrUrl are required.' });
+  }
+
+  // Parse code from full URL if user pasted the entire redirect URL
+  let authCode = String(codeOrUrl).trim();
+  if (authCode.includes('code=')) {
+    try {
+      const parsedUrl = new URL(authCode.startsWith('http') ? authCode : `https://dummy.com/${authCode}`);
+      const extracted = parsedUrl.searchParams.get('code');
+      if (extracted) {
+        authCode = extracted;
+      }
+    } catch {
+      const match = authCode.match(/[?&]code=([^&#]+)/);
+      if (match) {
+        authCode = decodeURIComponent(match[1]);
+      }
+    }
+  }
+
+  try {
+    const basicAuth = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
+    const params = new URLSearchParams({
+      grant_type: 'authorization_code',
+      code: authCode,
+      redirect_uri: redirectUri,
+    });
+
+    const tokenRes = await fetch('https://accounts.spotify.com/api/token', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Basic ${basicAuth}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: params.toString(),
+    });
+
+    const data = await tokenRes.json();
+
+    if (!tokenRes.ok) {
+      return res.status(tokenRes.status).json({
+        error: data.error_description || data.error || 'Failed to exchange authorization code with Spotify.',
+        details: data,
+      });
+    }
+
+    // Save into appConfig if successful
+    if (data.refresh_token) {
+      appConfig.spotifyClientId = clientId;
+      appConfig.spotifyClientSecret = clientSecret;
+      appConfig.spotifyRefreshToken = data.refresh_token;
+    }
+
+    return res.json({
+      success: true,
+      refreshToken: data.refresh_token,
+      accessToken: data.access_token,
+      expiresIn: data.expires_in,
+    });
+  } catch (err) {
+    console.error('Spotify token exchange error:', err);
+    return res.status(500).json({ error: String(err) });
+  }
+});
+
 // API: Fetch Discogs collection (live if token provided, else sample mock with status indicator)
 app.get('/api/discogs/collection', async (req: Request, res: Response) => {
   const username = (req.query.username as string) || appConfig.discogsUsername;
