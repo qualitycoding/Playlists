@@ -27,6 +27,15 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [accessToken, setAccessToken] = useState<string | null>(null);
   const [driveModalOpen, setDriveModalOpen] = useState<boolean>(false);
+  const [spotifyCallbackCode, setSpotifyCallbackCode] = useState<string | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    if (code) {
+      setSpotifyCallbackCode(code);
+    }
+  }, []);
 
   useEffect(() => {
     const unsubscribe = initAuth(
@@ -293,6 +302,27 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-6 py-8">
+        {spotifyCallbackCode && (
+          <div className="mb-6 p-4 rounded-xl bg-emerald-950/60 border border-emerald-700 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+            <div className="space-y-0.5">
+              <div className="font-semibold text-emerald-300">
+                Spotify Authorization Code Received!
+              </div>
+              <div className="text-neutral-300 font-mono text-[11px] truncate max-w-md">
+                Code: {spotifyCallbackCode.slice(0, 32)}...
+              </div>
+            </div>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(spotifyCallbackCode);
+                alert('Copied code to clipboard! Open "API Credentials" → "Generate on Mobile / Android" to exchange for Refresh Token.');
+              }}
+              className="px-3.5 py-1.5 rounded bg-emerald-400 hover:bg-emerald-300 text-black font-semibold whitespace-nowrap"
+            >
+              Copy Code to Clipboard
+            </button>
+          </div>
+        )}
         {activeTab === 'overview' && (
           <OverviewHero
             status={status}

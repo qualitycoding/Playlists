@@ -16,7 +16,7 @@ export const SpotifyTokenGeneratorModal: React.FC<SpotifyTokenGeneratorModalProp
 }) => {
   const [clientId, setClientId] = useState(initialClientId);
   const [clientSecret, setClientSecret] = useState(initialClientSecret);
-  const [redirectUri, setRedirectUri] = useState('https://localhost/callback');
+  const [redirectUri, setRedirectUri] = useState('https://qualitycoding.github.io/Playlists/');
   const [codeOrUrl, setCodeOrUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [refreshToken, setRefreshToken] = useState<string | null>(null);
@@ -153,11 +153,11 @@ export const SpotifyTokenGeneratorModal: React.FC<SpotifyTokenGeneratorModalProp
                 type="text"
                 value={redirectUri}
                 onChange={(e) => setRedirectUri(e.target.value)}
-                placeholder="https://localhost/callback"
+                placeholder="https://qualitycoding.github.io/Playlists/"
                 className="w-full rounded border border-neutral-800 bg-neutral-900 px-3 py-1.5 text-xs text-white placeholder-neutral-500 focus:border-emerald-400 focus:outline-none"
               />
               <span className="block text-[11px] text-neutral-500 mt-1">
-                Tip: If Spotify required https, you can use <code className="text-neutral-300">https://localhost/callback</code> in Spotify App Settings.
+                Tip: Enter <code className="text-emerald-400">https://qualitycoding.github.io/Playlists/</code> in your Spotify App Settings (Spotify accepts this public HTTPS URL without warning).
               </span>
             </div>
           </div>
