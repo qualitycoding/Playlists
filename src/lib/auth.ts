@@ -7,9 +7,9 @@ import {
   User,
   signOut,
 } from 'firebase/auth';
-import firebaseConfig from '../../firebase-applet-config.json';
+import { defaultFirebaseConfig } from './firebaseConfig';
 
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(defaultFirebaseConfig);
 export const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider();
