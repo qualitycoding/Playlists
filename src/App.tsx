@@ -1,0 +1,349 @@
+import React, { useState, useEffect, useCallback } from 'react';
+import { User } from 'firebase/auth';
+import { Navigation } from './components/Navigation';
+import { OverviewHero } from './components/OverviewHero';
+import { CollectionExplorer } from './components/CollectionExplorer';
+import { PlaylistMapping } from './components/PlaylistMapping';
+import { CacheAndUnmatched } from './components/CacheAndUnmatched';
+import { CodeViewerAndExport } from './components/CodeViewerAndExport';
+import { SyncModal } from './components/SyncModal';
+import { GoogleDriveExportModal } from './components/GoogleDriveExportModal';
+import { initAuth, SCOPES } from './lib/auth';
+import { DiscogsRelease, CollectionCache, UnmatchedItem, SystemStatus, SyncRunResult } from './types';
+
+export default function App() {
+  const [activeTab, setActiveTab] = useState<string>('overview');
+  const [status, setStatus] = useState<SystemStatus | null>(null);
+  const [releases, setReleases] = useState<DiscogsRelease[]>([]);
+  const [cache, setCache] = useState<CollectionCache | null>(null);
+  const [unmatched, setUnmatched] = useState<UnmatchedItem[]>([]);
+  const [loadingCollection, setLoadingCollection] = useState<boolean>(false);
+  const [isSyncing, setIsSyncing] = useState<boolean>(false);
+  const [syncModalOpen, setSyncModalOpen] = useState<boolean>(false);
+  const [syncResult, setSyncResult] = useState<SyncRunResult | null>(null);
+  const [syncDryRun, setSyncDryRun] = useState<boolean>(false);
+
+  // Google Drive & Auth state
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
+  const [driveModalOpen, setDriveModalOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    const unsubscribe = initAuth(
+      (user, token) => {
+        setCurrentUser(user);
+        setAccessToken(token);
+      },
+      () => {
+        setCurrentUser(null);
+        setAccessToken(null);
+      }
+    );
+    return () => {
+      if (typeof unsubscribe === 'function') unsubscribe();
+    };
+  }, []);
+
+  // Fetch system status
+  const fetchStatus = useCallback(async () => {
+    try {
+      const res = await fetch('/api/status');
+      if (res.ok) {
+        const data = await res.json();
+        setStatus(data);
+      }
+    } catch (err) {
+      console.error('Failed to load status:', err);
+    }
+  }, []);
+
+  // Fetch Discogs collection
+  const fetchCollection = useCallback(async () => {
+    setLoadingCollection(true);
+    try {
+      const res = await fetch('/api/discogs/collection');
+      if (res.ok) {
+        const data = await res.json();
+        setReleases(data.releases || data.fallbackReleases || []);
+      }
+    } catch (err) {
+      console.error('Failed to load Discogs collection:', err);
+    } finally {
+      setLoadingCollection(false);
+    }
+  }, []);
+
+  // Fetch cache
+  const fetchCache = useCallback(async () => {
+    try {
+      const res = await fetch('/api/cache');
+      if (res.ok) {
+        const data = await res.json();
+        setCache(data);
+      }
+    } catch (err) {
+      console.error('Failed to load cache:', err);
+    }
+  }, []);
+
+  // Fetch unmatched
+  const fetchUnmatched = useCallback(async () => {
+    try {
+      const res = await fetch('/api/unmatched');
+      if (res.ok) {
+        const data = await res.json();
+        setUnmatched(data);
+      }
+    } catch (err) {
+      console.error('Failed to load unmatched:', err);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchStatus();
+    fetchCollection();
+    fetchCache();
+    fetchUnmatched();
+  }, [fetchStatus, fetchCollection, fetchCache, fetchUnmatched]);
+
+  // Trigger sync run (dry-run or live)
+  const handleTriggerSync = async (dryRun: boolean) => {
+    setIsSyncing(true);
+    setSyncDryRun(dryRun);
+    setSyncResult(null);
+    setSyncModalOpen(true);
+
+    try {
+      const res = await fetch('/api/sync/run', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dryRun }),
+      });
+      if (res.ok) {
+        const data: SyncRunResult = await res.json();
+        setSyncResult(data);
+        // Refresh local cache and status
+        fetchStatus();
+        fetchCache();
+        fetchUnmatched();
+      } else {
+        const err = await res.json();
+        console.error('Sync failed:', err);
+      }
+    } catch (err) {
+      console.error('Sync execution error:', err);
+    } finally {
+      setIsSyncing(false);
+    }
+  };
+
+  // Save config
+  const handleSaveConfig = async (updated: Partial<SystemStatus['config'] & {
+    discogsToken?: string;
+    spotifyClientId?: string;
+    spotifyClientSecret?: string;
+    spotifyRefreshToken?: string;
+  }>) => {
+    try {
+      const res = await fetch('/api/config', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updated),
+      });
+      if (res.ok) {
+        await fetchStatus();
+        await fetchCollection();
+      }
+    } catch (err) {
+      console.error('Error saving config:', err);
+    }
+  };
+
+  // Save genre map
+  const handleSaveGenreMap = async (genreMap: Record<string, string[]>) => {
+    try {
+      await fetch('/api/config', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ genreMap }),
+      });
+      fetchStatus();
+    } catch (err) {
+      console.error('Error saving genre map:', err);
+    }
+  };
+
+  // Save playlists
+  const handleSavePlaylists = async (playlists: {
+    spotifyMasterPlaylistId: string;
+    spotifyRecentlyAddedPlaylistId: string;
+    spotifyGenrePlaylists: Record<string, string>;
+    ytmusicMasterPlaylistId: string;
+  }) => {
+    try {
+      await fetch('/api/config', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(playlists),
+      });
+      fetchStatus();
+    } catch (err) {
+      console.error('Error saving playlists:', err);
+    }
+  };
+
+  // Reset cache
+  const handleResetCache = async () => {
+    try {
+      const res = await fetch('/api/cache/reset', { method: 'POST' });
+      if (res.ok) {
+        fetchStatus();
+        fetchCache();
+      }
+    } catch (err) {
+      console.error('Error resetting cache:', err);
+    }
+  };
+
+  // Resolve unmatched track
+  const handleResolveUnmatched = async (data: {
+    releaseId: number;
+    artist: string;
+    album: string;
+    spotifyUris: string[];
+    ytIds: string[];
+  }) => {
+    try {
+      const res = await fetch('/api/unmatched/resolve', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        fetchStatus();
+        fetchCache();
+        fetchUnmatched();
+      }
+    } catch (err) {
+      console.error('Error resolving unmatched:', err);
+    }
+  };
+
+  // Download project ZIP
+  const handleDownloadZip = () => {
+    window.location.href = '/api/download-zip';
+  };
+
+  return (
+    <div className="min-h-screen bg-neutral-950 text-neutral-100 flex flex-col selection:bg-emerald-500/20 selection:text-emerald-300">
+      {/* Top Bar Navigation */}
+      <Navigation
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        onTriggerSync={handleTriggerSync}
+        isSyncing={isSyncing}
+        onDownloadZip={handleDownloadZip}
+        onOpenDriveModal={() => setDriveModalOpen(true)}
+      />
+
+      {/* Main Content Area */}
+      <main className="flex-1 max-w-7xl w-full mx-auto px-6 py-8">
+        {activeTab === 'overview' && (
+          <OverviewHero
+            status={status}
+            onRefresh={() => {
+              fetchStatus();
+              fetchCache();
+              fetchUnmatched();
+            }}
+            onTriggerSync={handleTriggerSync}
+            onSaveConfig={handleSaveConfig}
+            onNavigateTab={setActiveTab}
+          />
+        )}
+
+        {activeTab === 'collection' && (
+          <CollectionExplorer
+            releases={releases}
+            cache={cache}
+            loading={loadingCollection}
+            onRefreshCollection={fetchCollection}
+            username={status?.config?.discogsUsername || ''}
+          />
+        )}
+
+        {activeTab === 'playlists' && (
+          <PlaylistMapping
+            status={status}
+            onSaveGenreMap={handleSaveGenreMap}
+            onSavePlaylists={handleSavePlaylists}
+          />
+        )}
+
+        {activeTab === 'cache' && (
+          <CacheAndUnmatched
+            cache={cache}
+            unmatched={unmatched}
+            onResetCache={handleResetCache}
+            onResolveUnmatched={handleResolveUnmatched}
+            onRefresh={() => {
+              fetchCache();
+              fetchUnmatched();
+            }}
+          />
+        )}
+
+        {activeTab === 'code' && (
+          <CodeViewerAndExport
+            onDownloadZip={handleDownloadZip}
+            onOpenDriveModal={() => setDriveModalOpen(true)}
+          />
+        )}
+      </main>
+
+      {/* Sync Execution Modal */}
+      <SyncModal
+        isOpen={syncModalOpen}
+        onClose={() => setSyncModalOpen(false)}
+        result={syncResult}
+        loading={isSyncing}
+        dryRun={syncDryRun}
+      />
+
+      {/* Google Drive Export Modal */}
+      <GoogleDriveExportModal
+        isOpen={driveModalOpen}
+        onClose={() => setDriveModalOpen(false)}
+        currentUser={currentUser}
+        accessToken={accessToken}
+        onAuthSuccess={(user, token) => {
+          setCurrentUser(user);
+          setAccessToken(token);
+        }}
+        onAuthSignOut={() => {
+          setCurrentUser(null);
+          setAccessToken(null);
+        }}
+      />
+
+      {/* Clean quiet footer */}
+      <footer className="border-t border-neutral-900 bg-neutral-950 py-6 text-xs text-neutral-500">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <span className="font-serif font-semibold text-neutral-400">Discogs Streaming Sync</span>
+            <span aria-hidden="true">·</span>
+            <span>Automated Vinyl to Spotify & YouTube Music Bridge</span>
+          </div>
+
+          <div className="flex items-center gap-4 text-[11px] text-neutral-500">
+            <span>Position 0 Inserter</span>
+            <span aria-hidden="true">·</span>
+            <span>Weekly Cron Pipeline</span>
+            <span aria-hidden="true">·</span>
+            <span>State Cache Engine</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Discogs to Streaming Playlist Sync",
+  "description": "Automated Discogs collection synchronization engine for Spotify and YouTube Music playlists with state caching, genre sorting, and GitHub Actions orchestration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

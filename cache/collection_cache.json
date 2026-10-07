@@ -1,0 +1,43 @@
+{
+  "synced_release_ids": [
+    2481923,
+    1092831,
+    7821945
+  ],
+  "tracks": {
+    "2481923": {
+      "artist": "Daft Punk",
+      "album": "Discovery",
+      "genres": ["Electronic", "House", "Disco"],
+      "spotify_uris": [
+        "spotify:track:0DiWol3AO6WpXZgp0gGlNW",
+        "spotify:track:2cGxRwrMyEAp8dEbuZaVv6",
+        "spotify:track:59KoqfaO42mNq0v0pT1yFv"
+      ],
+      "yt_ids": ["FGBhQbmPwH8", "gAjR4_CbPpQ"],
+      "synced_at": "2026-10-01T03:14:02Z"
+    },
+    "1092831": {
+      "artist": "Miles Davis",
+      "album": "Kind of Blue",
+      "genres": ["Jazz", "Modal"],
+      "spotify_uris": [
+        "spotify:track:4vLYewWIvqHfKtJDk8c8DY",
+        "spotify:track:1ZT5b00kKjH94bYgJ22JdY"
+      ],
+      "yt_ids": ["HMPL_ACKBlD"],
+      "synced_at": "2026-09-24T03:10:15Z"
+    },
+    "7821945": {
+      "artist": "Radiohead",
+      "album": "OK Computer",
+      "genres": ["Rock", "Alternative Rock", "Art Rock"],
+      "spotify_uris": [
+        "spotify:track:10nyNJ6zNy2YVqiOi99A4v",
+        "spotify:track:6b2oQwFL9TgCvrHgM2VbtC"
+      ],
+      "yt_ids": ["1uNe_352r5I"],
+      "synced_at": "2026-09-17T03:08:44Z"
+    }
+  }
+}
