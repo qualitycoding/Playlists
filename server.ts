@@ -48,8 +48,8 @@ function writeJsonFile(filePath: string, data: unknown): void {
 let appConfig = {
   discogsToken: process.env.DISCOGS_TOKEN || '',
   discogsUsername: process.env.DISCOGS_USERNAME || '',
-  spotifyClientId: process.env.SPOTIPY_CLIENT_ID || '',
-  spotifyClientSecret: process.env.SPOTIPY_CLIENT_SECRET || '',
+  spotifyClientId: process.env.SPOTIPY_CLIENT_ID || process.env.SPOTIFY_CLIENT_ID || '',
+  spotifyClientSecret: process.env.SPOTIPY_CLIENT_SECRET || process.env.SPOTIFY_CLIENT_SECRET || '',
   spotifyRefreshToken: process.env.SPOTIFY_REFRESH_TOKEN || '',
   spotifyMasterPlaylistId: process.env.SPOTIFY_MASTER_PLAYLIST_ID || '37i9dQZF1DXcBWIGoYBM5M',
   spotifyRecentlyAddedPlaylistId: process.env.SPOTIFY_RECENTLY_ADDED_PLAYLIST_ID || '37i9dQZF1DX0XUsuxWHRQd',

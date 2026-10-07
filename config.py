@@ -10,9 +10,9 @@ except ImportError:
 DISCOGS_TOKEN = os.getenv("DISCOGS_TOKEN", "")
 DISCOGS_USERNAME = os.getenv("DISCOGS_USERNAME", "")
 
-# Spotify Credentials
-SPOTIPY_CLIENT_ID = os.getenv("SPOTIPY_CLIENT_ID", "")
-SPOTIPY_CLIENT_SECRET = os.getenv("SPOTIPY_CLIENT_SECRET", "")
+# Spotify Credentials (supports both SPOTIPY_ and SPOTIFY_ naming)
+SPOTIPY_CLIENT_ID = os.getenv("SPOTIPY_CLIENT_ID") or os.getenv("SPOTIFY_CLIENT_ID", "")
+SPOTIPY_CLIENT_SECRET = os.getenv("SPOTIPY_CLIENT_SECRET") or os.getenv("SPOTIFY_CLIENT_SECRET", "")
 SPOTIFY_REFRESH_TOKEN = os.getenv("SPOTIFY_REFRESH_TOKEN", "")
 
 # YouTube Music Credentials

@@ -14,8 +14,8 @@ except ImportError:
     print("Error: spotipy is not installed. Run 'pip install -r requirements.txt'")
     sys.exit(1)
 
-client_id = os.getenv("SPOTIPY_CLIENT_ID") or input("Enter SPOTIPY_CLIENT_ID: ").strip()
-client_secret = os.getenv("SPOTIPY_CLIENT_SECRET") or input("Enter SPOTIPY_CLIENT_SECRET: ").strip()
+client_id = os.getenv("SPOTIPY_CLIENT_ID") or os.getenv("SPOTIFY_CLIENT_ID") or input("Enter SPOTIPY_CLIENT_ID: ").strip()
+client_secret = os.getenv("SPOTIPY_CLIENT_SECRET") or os.getenv("SPOTIFY_CLIENT_SECRET") or input("Enter SPOTIPY_CLIENT_SECRET: ").strip()
 redirect_uri = os.getenv("SPOTIPY_REDIRECT_URI", "http://localhost:8888/callback")
 
 if not client_id or not client_secret:
