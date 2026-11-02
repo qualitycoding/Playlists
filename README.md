@@ -79,3 +79,7 @@ Add the secrets listed above to your repository under **Settings > Secrets and v
 `python -m unittest tests/test_sync.py` runs 8 unit tests with mocked services (no accounts needed). The `ci.yml` workflow
 runs flake8 and the tests on Python 3.10, 3.11 and 3.12. The weekly workflow commits `cache/collection_cache.json` and
 `logs/unmatched.json` back to the repository when they change.
+
+## Licence
+
+Apache License 2.0. See [LICENSE](LICENSE).
