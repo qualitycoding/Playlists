@@ -199,7 +199,7 @@
   },
   {
     "id": "C-010",
-    "claim": "Recent weekly Actions sync runs failed; CI/Pages passed on Nov2.",
+    "claim": "Recent weekly Actions sync runs failed; CI/Pages passed Nov2.",
     "kind": "software",
     "load_bearing": true,
     "sources": [
