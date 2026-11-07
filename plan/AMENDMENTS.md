@@ -66,7 +66,7 @@ Maps each finding of the independent pre-mortem (PM) and adversarial review (AB)
 | PM4-003 | D-028 | T-058 | S-008 | all secrets Environment-scoped; guard no longer the control |
 | PM4-004 | D-035,D-031 | T-056,T-055 | S-001,S-007 | order and counter source defined; re-anchor procedure |
 | PM4-005 | D-030,D-035 | T-053,T-059 | S-008 | if: always() and generation check |
-| PM4-006 | D-027 | T-052 | S-001,S-008 | every artefact is ciphertext |
+| PM4-006 | D-027 | T-052 | S-001,S-008 | relaxed 2026-11-07: collection and playlists are public (A-030), so only secrets and account data are kept out; the state artefact stays ciphertext |
 | PM4-007 | D-039 | T-066 | S-007 | server.ts deleted |
 | PM4-008 | D-035 | T-068 | S-002 | setup scripts |
 | PM4-009 | D-035 | T-053 | S-002 | token precedence |
@@ -89,3 +89,6 @@ Open after R5: PM4-002/AB-012 (agent identity, accepted risk R-043), owner decis
 
 ## G-001 (2026-11-07)
 PM-020 and R-006/R-013 resolved for release 1 by D-043 (YouTube Music removed); see GATE-G-001.md. AB-017 YouTube parts, PM4-018 YouTube ownership check and T-007/T-022 are deferred with it.
+
+## Privacy facts (2026-11-07)
+Owner stated the Discogs collection and Spotify playlists are public; the repository is public (API-verified). D-027 relaxed, D-023 and D-035 scope wording corrected (playlist-modify-public must stay for public playlists), PM-016 resolved (repository stays public; no visibility change planned), R-003/R-010/R-019/R-032/R-036 re-rated.
