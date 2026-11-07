@@ -13,3 +13,4 @@
 2026-11-07: R7 re-check recorded (premortem/round-7-recheck.md); cleanup of stale text pending.
 2026-11-07: replan to TIDAL and Apple Music applied; provider research recorded; no source, provider or deployment changes.
 2026-11-07: replan to TIDAL and YouTube applied (D-062..D-064); no source, provider or deployment changes.
+2026-11-07: stale-wording cleanup applied (R7 leftovers: first live write via sync, K renamed K_search/T_rel, reauth variable per provider, token.enc, liveness check specified, gate-readonly defined); checker extended with a stale-phrase list; TEST_PLAN refrozen.
