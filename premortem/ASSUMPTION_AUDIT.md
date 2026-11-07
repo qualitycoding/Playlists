@@ -1,2 +1,8 @@
-# Assumption audit blocked
-Fresh-context Opus-or-higher reviewer unavailable. A-001..A-018 unverifiable (user defaults/unprobed provider, security and performance facts); A-019 confirmed (Git smart-HTTP DNS failure, API works, ephemeral conservative); A-020 confirmed (reviewer unavailable); A-021 confirmed (index subset only). D-001..D-021 not independently audited. Protocol 4.7 not satisfied.
+
+## v3.9 addendum assumption audit (2026-11-02)
+
+| Assumption | Basis | Verdict |
+|---|---|---|
+| Audited baseline `none` is accurate | Addendum gap audit at rollout | Accepted (verified by final consistency check) |
+| Source-tip drift is the rollout's own addendum commit | Commit message + parent chain | Confirmed (D-901) |
+| No local build/mutation execution available | Sandbox probe (git transport blocked; API-only writes) | Confirmed; CI substitution recorded (D-905) |

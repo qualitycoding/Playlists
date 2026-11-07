@@ -1,2 +1,0 @@
-# Pre-mortem R1
-Six months after release: stale playlists despite green run, fake dashboard success, revoked YT session, public collection leak. Failure paths R-001..R-010. Critical/High risks remain; planner simulation only, not independent review.

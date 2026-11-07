@@ -1,0 +1,310 @@
+[
+  {
+    "id": "C-001",
+    "claim": "Spotify playlist add endpoint max 100 items/request and requires playlist-modify scopes.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://developer.spotify.com/documentation/web-api/reference/add-items-to-playlist",
+        "title": "Spotify Add Items",
+        "locator": "endpoint/body/scopes",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "single-source",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-017",
+      "T-010"
+    ]
+  },
+  {
+    "id": "C-002",
+    "claim": "Current SpotifyOAuth constructor does not accept refresh_token; target code supplies unsupported kwarg.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://github.com/spotipy-dev/spotipy/blob/master/spotipy/oauth2.py",
+        "title": "Spotipy source",
+        "locator": "SpotifyOAuth.__init__",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-013",
+      "T-020"
+    ]
+  },
+  {
+    "id": "C-003",
+    "claim": "GitHub Actions secrets cannot be referenced directly in if conditions.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions",
+        "title": "Secrets guide",
+        "locator": "if restrictions",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "single-source",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-020",
+      "T-027"
+    ]
+  },
+  {
+    "id": "C-004",
+    "claim": "GitHub Pages is static hosting, not an Express backend.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+        "title": "Pages",
+        "locator": "static hosting",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "single-source",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-001",
+      "T-025"
+    ]
+  },
+  {
+    "id": "C-005",
+    "claim": "ytmusicapi states it is unofficial/not supported or endorsed by Google.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://github.com/sigma67/ytmusicapi",
+        "title": "ytmusicapi",
+        "locator": "README disclaimer",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "single-source",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-018",
+      "G-001"
+    ]
+  },
+  {
+    "id": "C-006",
+    "claim": "YouTube Data API playlistItems.insert is official alternative; fit with Music unverified.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://developers.google.com/youtube/v3/docs/playlistItems/insert",
+        "title": "YouTube API insert",
+        "locator": "method/auth",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "single-source",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-018",
+      "G-001"
+    ]
+  },
+  {
+    "id": "C-007",
+    "claim": "Discogs collection endpoint paginated; target code returns partial/empty data on errors.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://www.discogs.com/developers",
+        "title": "Discogs docs",
+        "locator": "collection/pagination",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "single-source",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-012",
+      "T-001"
+    ]
+  },
+  {
+    "id": "C-008",
+    "claim": "Target sync advances cache after provider write errors.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://github.com/qualitycoding/Playlists/blob/main/sync_playlists.py",
+        "title": "sync_playlists.py",
+        "locator": "sync/cache loop",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-005",
+      "T-014"
+    ]
+  },
+  {
+    "id": "C-009",
+    "claim": "App.tsx fallback fabricates pseudo Spotify URIs and increments cache without provider writes.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://github.com/qualitycoding/Playlists/blob/main/src/App.tsx",
+        "title": "App.tsx",
+        "locator": "handleTriggerSync fallback",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-001",
+      "T-025"
+    ]
+  },
+  {
+    "id": "C-010",
+    "claim": "Recent weekly Actions sync runs failed; CI/Pages passed on Nov2.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://api.github.com/repos/qualitycoding/Playlists/actions/runs?per_page=20",
+        "title": "Actions history",
+        "locator": "runs 42388089013/42381911666 and 41497908210/41497908121",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-020",
+      "T-027"
+    ]
+  },
+  {
+    "id": "C-011",
+    "claim": "Public cache/unmatched files expose release IDs, artists/albums and provider track IDs.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://github.com/qualitycoding/Playlists/blob/main/cache/collection_cache.json",
+        "title": "Cache",
+        "locator": "release IDs/tracks",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-003",
+      "G-005"
+    ]
+  },
+  {
+    "id": "C-012",
+    "claim": "README states Pages static build; Express API exists only when npm dev/start runs.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://github.com/qualitycoding/Playlists/blob/main/README.md",
+        "title": "README",
+        "locator": "dashboard architecture",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-001",
+      "T-031"
+    ]
+  },
+  {
+    "id": "C-013",
+    "claim": "Weekly workflow uses secrets in if and lacks explicit contents:write.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://github.com/qualitycoding/Playlists/blob/main/.github/workflows/weekly_sync.yml",
+        "title": "weekly_sync.yml",
+        "locator": "credential step/permissions",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-020",
+      "T-027"
+    ]
+  },
+  {
+    "id": "C-014",
+    "claim": "YT Music auth setup collects browser request headers into JSON.",
+    "kind": "software",
+    "load_bearing": true,
+    "sources": [
+      {
+        "url": "https://github.com/qualitycoding/Playlists/blob/main/scripts/setup_ytmusic_auth.py",
+        "title": "YT auth script",
+        "locator": "header setup",
+        "accessed": "2026-11-07",
+        "tier": 1
+      }
+    ],
+    "confidence": "verified",
+    "evidence_class": "n/a",
+    "contradicted_by": [],
+    "informs": [
+      "D-018",
+      "T-022"
+    ]
+  }
+]

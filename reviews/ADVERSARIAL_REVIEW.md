@@ -1,2 +1,15 @@
-# Adversarial review not independently run
-Fresh Opus reviewer unavailable. Attack: Discogs page1 then 503; Spotify success/YT failure/restart; API success but readback omits item; YT auth expiry/schema change; Spotify invalid_grant; Pages without Express; secret scan public artifacts; Recently Added ID aliases master; wrong/missing encryption key; stale cache ID. Verify fail-closed/idempotent behaviour.
+# Adversarial review record — v3.9 addendum
+
+**Repository:** `qualitycoding/Playlists`.
+
+Adversarial questions applied to the amendment diff (substitution per D-906 —
+same-author adversarial pass; fresh-context reviewer unavailable):
+
+1. Does the gap ledger match the addendum exactly? Yes — `plan/ADDENDUM-V3.9-GAP.md`.
+2. Any product behaviour change? None — D-900; the diff touches planning artifacts only.
+3. Any swallowed failure or unrun check reported green? None locally; CI-dependent checks are recorded as pending-in-CI (D-905).
+4. Secret exposure? No credentials recorded in any artifact; the write token was used from the environment only.
+5. Frozen manifest changed? No — re-freeze not required; no frozen artifact legitimately changed.
+
+Unresolved items: none at planning level. Residual risk: no independent
+fresh-context adversarial pass (High, recorded).

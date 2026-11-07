@@ -1,2 +1,0 @@
-# Pre-mortem R2
-Controls cannot be verified before implementation. Three Critical and multiple High risks remain. Convergence criterion 0 Critical/High not met; independent reviewer unavailable. BLOCKED.

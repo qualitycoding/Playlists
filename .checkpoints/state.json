@@ -1,63 +1,19 @@
 {
-  "run_id": "gen-20261107T154700Z-playlists-app-reliability",
-  "protocol": "3.15",
-  "target": "qualitycoding/Playlists",
-  "source_commit": "04a5b754ca4df44ad69e6ba4756145dde37eaeb3",
-  "branch": "gen-20261107T154700Z-playlists-app-reliability",
-  "profiles": [
-    "software"
-  ],
-  "mode_flags": {
-    "software.deploys": true
-  },
-  "environment": {
-    "class": "ephemeral-conservative",
-    "python": "3.13.5",
-    "node": "22.16.0",
-    "npm": "10.9.0",
-    "git": "2.47.3",
-    "smart_http": "unreachable_dns",
-    "github_api": "reachable",
-    "registries": "not_probed",
-    "provider_credentials": "not_inspected",
-    "independent_agent": "unavailable"
-  },
-  "lesson_store": {
-    "head": "39c9e52b8d9e8405328e13efb6f7a426b3437dec",
-    "readable": true
-  },
-  "knowledge_store": {
-    "head": "dfb2a8e3fe34ea1ab519860eb97e87ed9e875ba7",
-    "readable": true
-  },
-  "prior_knowledge": {
-    "indexed_lessons": 223,
-    "indexed_knowledge": 298,
-    "read_lessons": 13,
-    "read_knowledge": 8,
-    "complete": false
-  },
-  "claims": {
-    "total": 14,
-    "verified": 7,
-    "corroborated": 0,
-    "single_source": 7,
-    "inferred": 0
-  },
-  "tests": 50,
-  "risks": {
-    "critical": 3,
-    "high": 6,
-    "medium": 5,
-    "low": 2
-  },
-  "gates": [
-    "G-001",
-    "G-002",
-    "G-003",
-    "G-004",
-    "G-005",
-    "G-006"
-  ],
-  "status": "BLOCKED — HUMAN DECISION REQUIRED"
+ "execution_context": {
+  "objective": "v3.9 planning addendum amendment (planning-only)",
+  "protocol": "v3.9",
+  "protocol_commit": "ef99285404419153dd5f9aaae14f14bb53604a62",
+  "implementation_branch": "impl-v39-addendum-20261102",
+  "amended_on": "2026-11-02"
+ },
+ "active_variables": {
+  "baseline": "none",
+  "source_tip": "3a8641ba2750553acfb5b2306c8a48230b08e281",
+  "audited_commit": "7f12ea432d83af00d182ad494bd5fc41d7ca8d28"
+ },
+ "artifacts": {
+  "ADDENDUM-V3.9-STATUS.md": "written"
+ },
+ "lesson_store": "qualitycoding/Lessons",
+ "knowledge_store": "qualitycoding/knowledge"
 }
