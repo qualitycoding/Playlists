@@ -1,3 +1,2 @@
-# Profile record
-
-Active profiles: `software`. Mode flags: `software.deploys = false`. Recorded by v3.9 addendum amendment, 2026-11-02.
+# Profiles
+Active software; software.deploys=true. Hobby/non-commercial. Platforms GitHub Actions Ubuntu x86_64, Pages browsers, local Python/Node. N/A math, computational, publication, math.exploration, courseware, audio (metadata/playlist orchestration only).

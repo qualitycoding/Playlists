@@ -1,7 +1,2 @@
 # Assumptions
-
-- **A-900** — No added platforms/runtimes beyond intake defaults (D-902).
-- **A-901** — CI is the authoritative venue for builds, tests and mutation runs
-  in this amendment (D-905).
-- **A-902** — Frozen expected behaviour and product scope are unchanged by this
-  planning amendment (D-900).
+A-001 hobby. A-002 one owner/Discogs collection. A-003 Python Actions sync, local .env. A-004 Sunday 03:00 UTC + manual. A-005 Spotify master, Recently Added, six genre lists, YT Music master. A-006 ytmusicapi candidate pending G-001. A-007 unique exact normalized artist/title; ambiguity unmatched. A-008 master/genres add-only; Recently Added only replace, top20/max100. A-009 Actions secrets/local .env, no browser secrets. A-010 preserve/migrate cache, no blind reset/duplicates. A-011 Pages read-only, manual via Actions. A-012 public status only; no collection details. A-013 state encrypted at rest with key in Actions secret/local .env or kept outside public repo. A-014 proposed 30-minute budget ubuntu-24.04, unmeasured. A-015 no extra platforms. A-016 owner reauth for expired credentials. A-017 public history may retain metadata; G-005 required. A-018 credentials/scopes/ownership not inspected. A-019 Git smart-HTTP DNS failed; GitHub API worked; classify ephemeral. A-020 independent Opus reviewer unavailable. A-021 223 lesson/298 knowledge candidates indexed; only 13/8 fully read; R0 incomplete.
