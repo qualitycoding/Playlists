@@ -13,18 +13,18 @@ def expand(s):
     return out
 tp = rd("tests/TEST_PLAN.md"); plan = rd("plan/PLAN.md"); tr = rd("plan/TRACEABILITY.md")
 ids = sorted(set(re.findall(r"\bT-(\d{3})\b", tp)))
-rows = re.findall(r"^\| T-(\d{3}) \| (S-[A-Z0-9]+) \| ([^|]+) \|", tr, re.M)
+rows = re.findall(r"^\| T-(\d{3}) \| (S-[A-Za-z0-9]+) \| ([^|]+) \|", tr, re.M)
 mapped = [i for i, _, _ in rows]
 for i in ids:
     if mapped.count(i) != 1: errs.append(f"T-{i} mapped {mapped.count(i)} times in TRACEABILITY")
 for i in set(mapped) - set(ids): errs.append(f"T-{i} in TRACEABILITY but not TEST_PLAN")
 for i, _, crit in rows:
     if crit.strip() == "—": errs.append(f"T-{i} maps to no success criterion")
-steps = re.findall(r"^- \*\*(S-[A-Z0-9]+)", plan, re.M)
+steps = re.findall(r"^- \*\*(S-[A-Za-z0-9]+)", plan, re.M)
 for _, s, _ in rows:
     if s not in steps: errs.append(f"unknown step {s}")
 # step test lists in PLAN equal TRACEABILITY
-for m in re.finditer(r"^- \*\*(S-\d{3})[^\n]*", plan, re.M):
+for m in re.finditer(r"^- \*\*(S-\d{3}[ab]?)[^\n]*", plan, re.M):
     listed = expand(m.group(0)); actual = {i for i, s, _ in rows if s == m.group(1)}
     if listed != actual: errs.append(f"{m.group(1)} tests differ: PLAN-only {sorted(listed-actual)} TRACEABILITY-only {sorted(actual-listed)}")
 # criteria
@@ -34,8 +34,8 @@ if crit_plan != crit_tr: errs.append(f"criteria PLAN {crit_plan} vs TRACEABILITY
 # header counts
 m = re.search(r"Tests: (\d+) \((\d+) unit, (\d+) ", plan)
 seg = lambda a, b: set(re.findall(r"T-(\d{3})", tp[tp.index(a):tp.index(b)]))
-unit = seg("Unit T-001", "Integration/ops") | seg("R4 new unit", "R4 new integration")
-other = seg("Integration/ops", "R4 new unit") | seg("R4 new integration", "All provider tests")
+unit = seg("Unit T-001", "Integration/ops") | seg("R4 new unit", "R4/R5 new integration")
+other = seg("Integration/ops", "R4 new unit") | seg("R4/R5 new integration", "All provider tests")
 if not m or (int(m[1]), int(m[2]), int(m[3])) != (len(ids), len(unit), len(other)): errs.append(f"PLAN test split {m and m.groups()} vs derived {(len(ids), len(unit), len(other))}")
 m = re.search(r"Steps: (\d+)", plan)
 if not m or int(m[1]) != len(steps): errs.append(f"PLAN steps header {m and m[1]} vs {len(steps)}")

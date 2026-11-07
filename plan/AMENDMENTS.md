@@ -56,3 +56,33 @@ Maps each finding of the independent pre-mortem (PM) and adversarial review (AB)
 - Partial: AB-020 (executable red tests and full-file manifest happen in S-000).
 - Not addressed: AB-026.
 - Unverified assumptions A-022..A-028 are carried as risks, not facts.
+
+## R5 (answers to round 4; applied 2026-11-07, not yet reviewed)
+
+| Finding | Decision | Tests | Step/Gate | Note |
+|---|---|---|---|---|
+| PM4-001 | D-028,D-029 | T-058 | S-008 | two Environments; schedule runs unattended after G-002b |
+| PM4-002 | D-028 | — | — | DEFERRED BY OWNER: admin credential kept; ACCEPTED RISK R-043; AB-012 stays open |
+| PM4-003 | D-028 | T-058 | S-008 | all secrets Environment-scoped; guard no longer the control |
+| PM4-004 | D-035,D-031 | T-056,T-055 | S-001,S-007 | order and counter source defined; re-anchor procedure |
+| PM4-005 | D-030,D-035 | T-053,T-059 | S-008 | if: always() and generation check |
+| PM4-006 | D-027 | T-052 | S-001,S-008 | every artefact is ciphertext |
+| PM4-007 | D-039 | T-066 | S-007 | server.ts deleted |
+| PM4-008 | D-035 | T-068 | S-002 | setup scripts |
+| PM4-009 | D-035 | T-053 | S-002 | token precedence |
+| PM4-010 | D-034 | T-060 | S-005 | cross-release URI ledger |
+| PM4-011 | D-024 | T-057 | S-005 | re-anchor baseline |
+| PM4-012 | D-032,D-036 | T-061,T-067 | S-002,S-004 | private report split; fixture freeze point at end of S-002 |
+| PM4-013 | D-036 | T-065 | S-000a,S-000b | S-000 split |
+| PM4-014 | D-032 | T-061,T-067 | S-004 | track, year and Various rules; master-lookup budget; floor at G-002b only |
+| PM4-015 | D-040 | T-069 | S-004 | explicit genre map |
+| PM4-016 | D-042 | T-058 | S-008 | live mode only in Actions on main; pending-run behaviour documented |
+| PM4-017 | D-033,D-034 | T-018 | S-005 | over-100-track albums; minimum fill; Recently Added exemption |
+| PM4-018 | D-023,D-035 | T-051 | S-002 | unknown privacy is non-private; reauth scheduled |
+| PM4-019 | D-041 | T-070 | S-006 | owner report command; periodic re-search |
+| PM4-020 | D-036 | T-065 | S-000b | checker extended in R4 commit |
+| PM4-021 | D-027 | — | — | metadata leak accepted by design |
+| PM4-022 | D-031 | T-055 | S-007 | issue-opening check workflow |
+| PM4-023 | D-030,D-031 | T-064,T-055 | S-008 | deploy job without Node; shared Pages concurrency group |
+
+Open after R5: PM4-002/AB-012 (agent identity, accepted risk R-043), owner decisions (G-001 account, visibility versus Pages, recall floor, Environment availability), executable red tests (S-000b), independent assumption audit, round 5.

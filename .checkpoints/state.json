@@ -41,10 +41,10 @@
     "single_source": 6,
     "inferred": 0
   },
-  "tests": 66,
+  "tests": 70,
   "risks": {
     "critical": 4,
-    "high": 18,
+    "high": 19,
     "medium": 18,
     "low": 2
   },
@@ -78,7 +78,7 @@
   "assumption_audit": {
     "confirmed": 3,
     "falsified": 0,
-    "unverifiable": 25
+    "unverifiable": 26
   },
   "independent_reviews": {
     "premortem": {
@@ -115,19 +115,29 @@
   },
   "residual_risks_planner_estimate_unreviewed": {
     "critical": 0,
-    "high": 10,
-    "medium": 17,
-    "low": 15
+    "high": 5,
+    "medium": 21,
+    "low": 17
   },
-  "decisions": 39,
+  "decisions": 42,
   "amendments": {
     "round": "R4",
     "date": "2026-11-07",
     "map": "plan/AMENDMENTS.md",
     "test_plan_refrozen": true,
     "red_verified": false,
-    "executable_red_tests": false
+    "executable_red_tests": false,
+    "r5": {
+      "date": "2026-11-07",
+      "applied": true,
+      "deferred": [
+        "non-admin agent identity (accepted risk R-043)"
+      ],
+      "round5_run": false,
+      "test_plan_refrozen": true
+    }
   },
   "rounds_used": 4,
-  "rounds_max": 5
+  "rounds_max": 5,
+  "steps": 13
 }
