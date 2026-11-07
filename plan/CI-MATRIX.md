@@ -1,18 +1,9 @@
-# CI platform matrix (v3.9, intake-derived)
+# CI platform matrix
 
-**Repository:** `qualitycoding/Playlists` — primary language: TypeScript.
+Intake supports GitHub Actions on Ubuntu x86_64 only. No Windows, macOS, ARM64, musl or emulator support is declared.
 
-Intake declares no additional OS/architecture/runtime bounds beyond the default
-Linux CI runner; per D-902/D-904 no platform expansion is claimed.
-
-| Platform bound | CI job | Waiver |
+| Platform | CI job | Coverage |
 |---|---|---|
-| ubuntu-24.04 x86_64 | `build-test` (pinned label `ubuntu-24.04`) | — |
-| oldest supported toolchain | `oldest-toolchain` job (pinned) | — |
-| ARM64 | `linux-arm64` job (pinned label) | — |
-| libc variant | `musl` container job | — |
+| ubuntu-24.04 x86_64 | primary | Python unit/integration/operational/security tests; Node/TypeScript lint/build; workflow validation; dependency and secret scans; Pages build/smoke/rollback |
 
-Matrix fail-fast disabled. Runner labels and action pins are checked for
-existence at plan freeze; every intake-declared platform maps to a versioned
-job or a recorded waiver. Long builds and mutation runs execute in CI, not in
-ephemeral local sandboxes (D-905).
+Local developer environments are convenience targets, not a CI platform promise. Pin the runner label and every action SHA after existence checks in S-000. Do not add oldest-toolchain, ARM64 or musl jobs without new intake evidence and a recorded decision. The current project has historical CI on Python 3.10/3.11/3.12 and Node 20, but exact pins and lockfiles must be verified before retaining that matrix.
