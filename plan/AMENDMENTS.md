@@ -86,3 +86,6 @@ Maps each finding of the independent pre-mortem (PM) and adversarial review (AB)
 | PM4-023 | D-030,D-031 | T-064,T-055 | S-008 | deploy job without Node; shared Pages concurrency group |
 
 Open after R5: PM4-002/AB-012 (agent identity, accepted risk R-043), owner decisions (G-001 account, visibility versus Pages, recall floor, Environment availability), executable red tests (S-000b), independent assumption audit, round 5.
+
+## G-001 (2026-11-07)
+PM-020 and R-006/R-013 resolved for release 1 by D-043 (YouTube Music removed); see GATE-G-001.md. AB-017 YouTube parts, PM4-018 YouTube ownership check and T-007/T-022 are deferred with it.

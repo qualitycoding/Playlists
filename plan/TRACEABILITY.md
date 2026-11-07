@@ -6,7 +6,7 @@ Rebuilt 2026-11-07 (R4). Every success criterion has a row; every T-ID in tests/
 | # | Requirement | Tests | Steps | Decisions | Evidence | Gates |
 |---|---|---|---|---|---|---|
 | 1 | Fetch every Discogs page or fail closed | T-001,T-002,T-003,T-004,T-044 | S-003 | D-012,D-034 | C-007 CR-004 AB-001 AB-002 | — |
-| 2 | Per-target completion only after verified write/read-back | T-009,T-010,T-014,T-015,T-024,T-035,T-038,T-043,T-060,T-063,T-069 | S-005 | D-006,D-007,D-034 | C-008 AB-005 AB-017 | G-001 |
+| 2 | Per-target completion only after verified write/read-back | T-009,T-010,T-014,T-015,T-024,T-035,T-038,T-043,T-060,T-063,T-069 | S-005 | D-006,D-007,D-034 | C-008 AB-005 AB-017 | — |
 | 3 | Reruns and overlapping runs create no duplicates | T-016,T-054,T-060,T-017 | S-005 | D-025,D-034 | PM-004 AB-004 AB-006 | — |
 | 4 | Master/genre add-only; Recently Added alone replaced under D-033 | T-017,T-018,T-051,T-057 | S-005 | D-009,D-010,D-023,D-024,D-033 | PM-001 PM-007 PM-015 | — |
 | 5 | Ambiguous matches remain unmatched | T-005,T-006,T-007,T-008,T-033,T-061,T-070 | S-004 | D-008,D-032 | A-007 CR-007 | G-006 |

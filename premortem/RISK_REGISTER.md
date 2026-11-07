@@ -1,7 +1,7 @@
 # Risk register
 Rebuilt 2026-11-07 (R4) and updated after independent round 4. Severity is a combined likelihood-and-impact judgement. Inherent = before the plan's controls; residual = after the R4 amendments, planner estimate adjusted to the round-4 reviewer's ratings where they were higher; R5 changes are not yet applied. Ratings of R-001, R-003, R-010, R-011, R-014 follow the independent pre-mortem. Source IDs (PM4 = round-4 narratives): C claims, CR code review, PM independent pre-mortem, AB independent adversarial.
-Totals: 43 risks. Inherent Critical 4, High 19, Medium 18, Low 2. Residual Critical 0, High 5, Medium 21, Low 17.
-Convergence criterion 0 Critical/High residual: NOT met. High residuals: R-006 and R-013 (owner decision at G-001), R-020 (Environment availability unverified; agent identity not separated), R-021 (no executable tests until S-000b) and R-043 (admin credential accepted by the owner 2026-11-07). R5 residual ratings are planner estimates; the round-4 reviewer's warning stands that no risk whose only control is an unwritten test deserves Low.
+Totals: 43 risks. Inherent Critical 4, High 19, Medium 18, Low 2. Residual Critical 0, High 3, Medium 21, Low 19.
+Convergence criterion 0 Critical/High residual: NOT met. High residuals: R-020 (Environment availability unverified; agent identity not separated), R-021 (no executable tests until S-000b) and R-043 (admin credential accepted by the owner 2026-11-07). R-006 and R-013 closed for release 1 by D-043. Residual ratings are planner estimates; no risk whose only control is an unwritten test deserves Low.
 
 | ID | Risk | Inherent | Residual | Controls (decision, tests, steps, gates) | Sources |
 |---|---|---|---|---|---|
@@ -10,14 +10,14 @@ Convergence criterion 0 Critical/High residual: NOT met. High residuals: R-006 a
 | R-003 | Public collection exposure in repo, state or cache | High | Medium | D-004,D-035,D-038 T-045,T-056 S-001,S-006 G-005 | C-011 CR-002 |
 | R-004 | Discogs partial or drifting data | High | Low | D-012,D-034 T-001..T-004,T-044 S-003 | CR-004 AB-001 AB-002 |
 | R-005 | Spotify OAuth startup failure | High | Medium | D-013,D-035 T-020,T-021,T-053 S-002; D-035 T-068 | CR-005 PM4-008 |
-| R-006 | YouTube Music unofficial auth fragility | High | High | D-018,D-038 T-022,T-063 S-002 G-001 | AB-017 |
+| R-006 | YouTube Music unofficial auth fragility | High | Low | D-018,D-038 T-022,T-063 S-002 G-001; CLOSED for release 1 by D-043 (YouTube Music removed, G-001 decided 2026-11-07) | AB-017 |
 | R-007 | Weekly workflow failure or silent skip | High | Medium | D-030,D-026,D-037 T-027,T-028,T-059,T-064 S-000,S-008 | CR-006 AB-003 AB-016 PM-019 |
 | R-008 | Wrong album match | High | Medium | D-008,D-032 T-005..T-009,T-061 S-004 G-006 | CR-007 AB-008 |
 | R-009 | Recently Added data loss | High | Low | D-010,D-033,D-023 T-018,T-051 S-005 | PM-001 PM-007 AB-007 |
 | R-010 | Public git history retains rows | Medium | Medium | D-019,D-038 S-001 G-005 | PM-016 |
 | R-011 | Encryption flaws, no key lifecycle | High | Medium | D-035 T-056 S-001; D-035 R5 | PM-010 AB-014 PM4-004 |
 | R-012 | Quota, runtime or first-run overrun | Medium | Medium | D-024 T-044,T-047,T-048 S-000,S-005 | PM-017 PM4-014 |
-| R-013 | YouTube terms or account risk | High | High | D-038 G-001 | PM-020 |
+| R-013 | YouTube terms or account risk | High | Low | D-038 G-001; CLOSED for release 1 by D-043 (YouTube Music removed, G-001 decided 2026-11-07) | PM-020 |
 | R-014 | Stale status or silently disabled schedule | High | Medium | D-031 T-032,T-055 S-007; D-031 R5 | PM-005 AB-018 PM4-001 PM4-022 |
 | R-015 | Stale cache IDs | Medium | Low | D-005,D-037 T-011,T-034,T-062 S-006 G-004 |  |
 | R-016 | Plan controls omitted or mis-mapped | Medium | Low | D-036 T-065 S-000 | PM-018 AB-021 |

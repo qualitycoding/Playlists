@@ -115,11 +115,11 @@
   },
   "residual_risks_planner_estimate_unreviewed": {
     "critical": 0,
-    "high": 5,
+    "high": 3,
     "medium": 21,
-    "low": 17
+    "low": 19
   },
-  "decisions": 42,
+  "decisions": 43,
   "amendments": {
     "round": "R4",
     "date": "2026-11-07",
@@ -139,5 +139,8 @@
   },
   "rounds_used": 4,
   "rounds_max": 5,
-  "steps": 13
+  "steps": 13,
+  "gate_decisions": {
+    "G-001": "removed YouTube Music from release 1 (D-043), 2026-11-07"
+  }
 }

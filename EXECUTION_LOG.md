@@ -4,3 +4,4 @@
 2026-11-07 (R4): applied plan amendments from the independent reviews; added plan/AMENDMENTS.md and plan/tools/check_plan_consistency.py (read-only; reports tests=66 steps=12 decisions=39 risks=37 criteria=13 OK); refroze tests/TEST_PLAN.md. No source code, provider calls, playlist writes, deployments or store pushes.
 2026-11-07 (R4 review): ran independent pre-mortem round 4 on the amended plan; recorded results, adopted re-ratings, fixed mechanical gaps. No source, provider, store or deployment changes.
 2026-11-07 (R5): applied round-4 amendments except agent-identity separation; checker run. No source, provider, store or deployment changes.
+2026-11-07: G-001 decided (remove YouTube Music); GATE-G-001.md committed; plan, decisions, tests, register updated. No source, provider or deployment changes.

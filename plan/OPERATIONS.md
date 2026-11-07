@@ -3,3 +3,4 @@ Actions only; Sunday 03:00 UTC + manual. Pages static/read-only. Secrets in Acti
 
 ## Amendments R4 (2026-11-07)
 Logs and outputs: counts, run URLs and keyed hashes only; never artist, title, account identifier or provider response bodies (D-027). Concurrency group "sync", no cancellation (D-025). Exit codes 0/2/1 (D-026). Circuit-breaker abort: investigate, then re-dispatch with an override reason only if the additions are expected (D-024). Dashboard STALE after 8 days; owner checks monthly that the schedule is enabled and re-enables it if GitHub disabled it (D-031). Key custody: owner keeps an offline copy; rotate by re-encryption under a new key ID; on key loss mark every ledger row unknown and run the duplicate report before any write (D-035). Legacy scheduled workflow stays disabled until G-002b (D-030). Gate evidence is committed redacted only (D-027, D-028).
+R4 note (D-043): release 1 has no YouTube Music target, credential or secret.
