@@ -1,2 +1,7 @@
-# Environment
-2026-11-07: Python 3.13.5, Node 22.16.0, npm 10.9.0, Git 2.47.3. Git smart-HTTP ls-remote DNS failed; GitHub API works. Registries/provider egress not probed; no installs. Recent Action summaries visible, failed job details unavailable. Class ephemeral (conservative). Playlists admin/push true. Lessons private/readable HEAD 39c9e52b8d9e8405328e13efb6f7a426b3437dec. knowledge private/readable HEAD dfb2a8e3fe34ea1ab519860eb97e87ed9e875ba7. PR/Pages/secrets/visibility writes not tested. No provider credentials inspected. No pins frozen; action tags float and requirements are ranges. S-000 must verify exact package versions, immutable action SHAs, lockfiles and CI install. CI 41497908210 and Pages 41497908121 passed Nov2; sync runs 42381911666 and 42388089013 failed Nov7; exact failure cause unknown.
+# Environment record
+
+Execution environment classified **ephemeral** (sandbox recycles state; durable
+mount used for all working state). Git transport to github.com is unreachable
+from the sandbox; reads use codeload tarballs, writes use the GitHub Git
+database API with verified remote SHAs after each push. Long builds, tests and
+mutation runs are delegated to CI jobs (see plan/CI-MATRIX.md).

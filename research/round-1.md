@@ -1,2 +1,0 @@
-# R1 Decomposition
-Primary issue is data integrity: Pages static; App.tsx fakes success; Python cache advances after failed writes; Discogs errors return partial/empty; Spotify auth kwarg incompatible; weekly workflow fails and has secrets/permission problems; public cache exposes collection metadata. Sources: target repo, Spotify, Spotipy, GitHub secrets, Pages, Discogs (read-only).

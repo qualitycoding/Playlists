@@ -1,11 +1,2 @@
-# Code review record — v3.9 addendum
-
-**Repository:** `qualitycoding/Playlists`. Subject: planning-amendment diff only
-(planning documents; no product code changed).
-
-Fresh-context independent reviewer unavailable in this environment. Recorded
-substitution (D-906, High risk): the amendment author performed a self-review
-against the addendum step checklist; every question found is resolved in
-`plan/DECISIONS.md` or `DEVIATIONS.md`. This is **not** claimed as an
-independent pass; an independent review remains pending and is listed as a
-residual risk in `premortem/RISK_REGISTER.md`.
+# Source review (not independent fixed-code review)
+CR-001 Critical fake pseudo IDs/success on Pages. CR-002 Critical public cache/unmatched data. CR-003 Critical cache advances after provider errors. CR-004 High Discogs partial results/unbounded 429. CR-005 High unsupported SpotifyOAuth kwarg. CR-006 High secrets in workflow if and missing contents:write. CR-007 High first album result without uniqueness/edition checks. CR-008 Medium unused YT Recently Added config. CR-009 Medium genre IDs read from os.environ. CR-010 Medium Express routes accept credentials/token exchange.

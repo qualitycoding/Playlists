@@ -1,2 +1,0 @@
-# R3 Synthesis
-README says dashboard can sync, but Pages static and Express local-only. UI creates pseudo IDs and success. Python catches provider errors then marks synced. Discogs fetch may return partial. OAuth call unsupported. YT auth browser headers. Public cache/log expose metadata. Exact latest Action failure cause unknown.
