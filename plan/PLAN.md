@@ -1,6 +1,6 @@
 # S-000 — Intake and preflight
 
-**Status: BLOCKED — HUMAN DECISION REQUIRED.** Active profile: software. Claims: 14 (verified 7, corroborated 0, single-source 7, inferred 0). Tests: 50 (36 unit, 14 integration/operational/security/performance/deployment). Steps: 11. Gates: 6. Risks: Critical 3, High 6, Medium 5, Low 2. Assumption audit: 0 confirmed, 0 falsified, 21 unverifiable. Code review: 3 Critical, 4 High, 3 Medium. Independent adversarial breaks: not run. Mutation testing opted out (D-014).
+**Status: BLOCKED — HUMAN DECISION REQUIRED.** Active profile: software. Claims: 14 (verified 7, corroborated 0, single-source 7, inferred 0). Tests: 50 (36 unit, 14 integration/operational/security/performance/deployment). Steps: 11. Gates: 6. Risks: Critical 3, High 8, Medium 6, Low 0. Assumption audit: 3 confirmed, 0 falsified, 18 unverifiable. Code review: 3 Critical, 4 High, 3 Medium. Independent adversarial breaks: not run. Mutation testing opted out (D-014).
 
 ## Goal and scope
 
