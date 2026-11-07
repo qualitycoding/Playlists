@@ -8,3 +8,4 @@ G-003 before lesson/knowledge push: schema/secret scan, R7 register; owner confi
 G-004 before cache migration: backup/checksum, remote read-back, duplicate report, legacy-match disagreement report (D-032, D-037); owner approves.
 G-005 before history rewrite/force push/purge/visibility change: exposure inventory (including Actions logs and artefacts), impact of each option including the Pages and separate-private-state-repository trade-offs (D-038), backup; owner approves.
 G-006 before matching beyond exact unique: labelled fixture precision and recall report; owner approves.
+R6: gate approval is recorded with its channel (owner, conversation, date) in GATE-<id>.md; the gate-rehearsal Environment secrets are cleared after the first G-002b run (D-046, D-028).

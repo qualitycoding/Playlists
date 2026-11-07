@@ -8,13 +8,13 @@ Rebuilt 2026-11-07 (R4). Every success criterion has a row; every T-ID in tests/
 | 1 | Fetch every Discogs page or fail closed | T-001,T-002,T-003,T-004,T-044 | S-003 | D-012,D-034 | C-007 CR-004 AB-001 AB-002 | — |
 | 2 | Per-target completion only after verified write/read-back | T-009,T-010,T-014,T-015,T-024,T-035,T-038,T-043,T-060,T-063,T-069 | S-005 | D-006,D-007,D-034 | C-008 AB-005 AB-017 | — |
 | 3 | Reruns and overlapping runs create no duplicates | T-016,T-054,T-060,T-017 | S-005 | D-025,D-034 | PM-004 AB-004 AB-006 | — |
-| 4 | Master/genre add-only; Recently Added alone replaced under D-033 | T-017,T-018,T-051,T-057 | S-005 | D-009,D-010,D-023,D-024,D-033 | PM-001 PM-007 PM-015 | — |
-| 5 | Ambiguous matches remain unmatched | T-005,T-006,T-007,T-008,T-033,T-061,T-070 | S-004 | D-008,D-032 | A-007 CR-007 | G-006 |
-| 6 | Dry-run performs zero writes and no durable-state mutation | T-023,T-039 | S-005,S-008 | D-026,D-031 | AB-019 | — |
+| 4 | Master/genre add-only; Recently Added alone replaced under D-033 | T-017,T-018,T-051,T-057,T-071 | S-005 | D-009,D-010,D-023,D-024,D-033,D-046 | PM-001 PM-007 PM-015 | — |
+| 5 | Ambiguous matches remain unmatched | T-005,T-006,T-007,T-008,T-033,T-061,T-070,T-072 | S-004 | D-008,D-032 | A-007 CR-007 | G-006 |
+| 6 | Dry-run performs zero writes and no durable-state mutation | T-023,T-039 | S-005,S-008 | D-026,D-031,D-047 | AB-019 | — |
 | 7 | Pages, logs, artefacts and gate evidence cannot fake sync or expose secrets or account data | T-025,T-026,T-031,T-032,T-041,T-045,T-052,T-066 | S-001,S-007,S-009 | D-001,D-003,D-027,D-039 | C-004 C-009 PM-002 AB-011 | G-002a |
 | 8 | State encrypted or outside the public repository, with key lifecycle | T-011,T-012,T-013,T-053,T-056,T-068 | S-001,S-002,S-006 | D-004,D-035 | C-011 PM-010 AB-014 | G-004,G-005 |
 | 9 | Workflow uses least privilege and fails visibly | T-019,T-020,T-021,T-022,T-027,T-028,T-029,T-030,T-036,T-042,T-058,T-059,T-064 | S-008 | D-020,D-026,D-028,D-030 | C-003 C-010 C-013 AB-003 AB-016 | — |
-| 10 | All 70 frozen tests (except those deferred, D-043) and security scans pass; Pages smoke and rollback pass | T-037,T-045,T-046,T-047,T-048,T-049,T-050,T-065 | S-000b,S-009 | D-036 | AB-020 AB-021 | G-002a,G-002b |
+| 10 | All 72 frozen tests (except those deferred, D-043) and security scans pass; Pages smoke and rollback pass | T-037,T-045,T-046,T-047,T-048,T-049,T-050,T-065 | S-000b,S-009 | D-036 | AB-020 AB-021 | G-002a,G-002b |
 | 11 | Owner approves adapter, migration, history and live writes at the gates | T-034,T-040,T-058 | S-009 | D-028,D-029,D-038 | AB-012 AB-013 | G-001..G-006 |
 | 12 | Matching precision and recall reported against a labelled fixture with an agreed floor | T-061,T-062,T-067 | S-004,S-006 | D-032 | PM-006 AB-008 | G-006,G-002b |
 | 13 | A stale status is visible (STALE after 8 days) | T-055,T-032 | S-007 | D-031 | PM-005 AB-018 | — |
@@ -93,6 +93,8 @@ Rebuilt 2026-11-07 (R4). Every success criterion has a row; every T-ID in tests/
 | T-068 | S-002 | 8 |
 | T-069 | S-004 | 2 |
 | T-070 | S-006 | 5 |
+| T-071 | S-005 | 4 |
+| T-072 | S-004 | 5 |
 
 ## Steps without tests
 

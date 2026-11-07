@@ -1,7 +1,7 @@
 # Risk register
 Rebuilt 2026-11-07 (R4) and updated after independent round 4. Severity is a combined likelihood-and-impact judgement. Inherent = before the plan's controls; residual = after the R4 amendments, planner estimate adjusted to the round-4 reviewer's ratings where they were higher; R5 changes are not yet applied. Ratings of R-001, R-003, R-010, R-011, R-014 follow the independent pre-mortem. Source IDs (PM4 = round-4 narratives): C claims, CR code review, PM independent pre-mortem, AB independent adversarial.
-Totals: 50 risks. Inherent Critical 3, High 25, Medium 17, Low 5. Residual Critical 0, High 13, Medium 20, Low 17.
-Convergence criterion 0 Critical/High residual: NOT met after the final permitted round (round 5, premortem/round-5.md). Residual Highs: R-007, R-011, R-020, R-021, R-023, R-026, R-041, R-043 and new R-044..R-048. R-043 is an accepted risk; R-020 and R-043 must be accepted by name before READY. Residual ratings are planner estimates adjusted to the round-5 reviewer's ratings.
+Totals: 50 risks. Inherent Critical 3, High 25, Medium 17, Low 5. Residual Critical 0, High 9, Medium 22, Low 19.
+Convergence criterion 0 Critical/High residual: NOT met after the final permitted round (round 5, premortem/round-5.md). Residual Highs after the R6 amendments (planner estimate, not yet reviewed): R-007, R-011, R-020, R-021, R-023, R-026, R-041, R-043, R-047. R-043 is an accepted risk; R-020 and R-043 must be accepted by name before READY. Residual ratings are planner estimates adjusted to the round-5 reviewer's ratings.
 
 | ID | Risk | Inherent | Residual | Controls (decision, tests, steps, gates) | Sources |
 |---|---|---|---|---|---|
@@ -48,10 +48,10 @@ Convergence criterion 0 Critical/High residual: NOT met after the final permitte
 | R-041 | Status deploy needs Pages privileges and Node and races deploy-pages.yml | Medium | High | D-030 D-031 | PM4-023 PM5-001 |
 | R-042 | Local live runs bypass concurrency; queued runs are dropped | Medium | Medium | D-042 | PM4-016 |
 | R-043 | Agent runs under the owner's admin credential, so it can approve its own gate and bypass branch protection | High | High | D-028 partial; separation deferred by owner 2026-11-07 (ACCEPTED RISK) | PM4-002 AB-012 |
-| R-044 | Two Pages deployers overwrite status.json; rollback counter wedges or fails open | High | High | none yet (round-5 amendment 1) | PM5-001 PM5-017 |
-| R-045 | Branch protection on main rejects the unattended state commit | High | High | none yet (round-5 amendment 2) | PM5-002 |
-| R-046 | Rehearsal state and secrets contaminate production; ledger keyed by target not playlist ID | High | High | none yet (round-5 amendment 3) | PM5-003 PM5-009 PM5-010 |
-| R-047 | Gate-evidence test impossible while the agent acts as the owner; owner-only controls are agent-executable | High | High | D-028 records R-043 but understates it (round-5 amendment 4) | PM5-004 PM5-018 |
-| R-048 | Dry-run or canary refresh orphans the rotated Spotify token | High | High | none yet (round-5 amendment 5; depends on unverified A-023) | PM5-005 |
-| R-049 | Legacy residue: Gemini key, Firebase/OAuth client, unrevoked YouTube secret | Medium | Medium | none yet (round-5 amendment 6) | PM5-006 PM5-007 |
-| R-050 | Test and checker mechanics: deferred handling, T-066 scope, red tests turn main red, checker blind spots | Medium | Medium | partly: this commit extends the checker | PM5-008 PM5-012 PM5-013 PM5-014 |
+| R-044 | Two Pages deployers overwrite status.json; rollback counter wedges or fails open | High | Medium | D-044 T-055,T-056,T-064 S-007,S-008 | PM5-001 PM5-017 |
+| R-045 | Branch protection on main rejects the unattended state commit | High | Medium | D-045 T-030,T-064 S-000a,S-008; A-031 | PM5-002 |
+| R-046 | Rehearsal state and secrets contaminate production; ledger keyed by target not playlist ID | High | Medium | D-046 T-051,T-060,T-071 S-005,S-008 | PM5-003 PM5-009 PM5-010 |
+| R-047 | Gate-evidence test impossible while the agent acts as the owner; owner-only controls are agent-executable | High | High | D-028 R6 (honest approval channel; R-043 consequences enumerated) T-058 S-009 | PM5-004 PM5-018 |
+| R-048 | Dry-run or canary refresh orphans the rotated Spotify token | High | Medium | D-047 T-023,T-053 S-002 | PM5-005 |
+| R-049 | Legacy residue: Gemini key, Firebase/OAuth client, unrevoked YouTube secret | Medium | Low | D-048 T-064 S-001,S-008 | PM5-006 PM5-007 |
+| R-050 | Test and checker mechanics: deferred handling, T-066 scope, red tests turn main red, checker blind spots | Medium | Low | D-036 T-064,T-065,T-066 S-000b | PM5-008 PM5-012 PM5-013 PM5-014 |

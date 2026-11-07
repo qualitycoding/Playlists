@@ -95,3 +95,6 @@ Owner stated the Discogs collection and Spotify playlists are public; the reposi
 
 ## Round 5 (2026-11-07, final permitted round) — NOT applied
 PM5-001..PM5-005 (High) need amendments 1-5 of premortem/INDEPENDENT_PREMORTEM_R5.md; PM5-006..PM5-021 are Medium or Low. Applied now: mechanical fixes only (S-000a/S-000b citations, D-043 marks, TRACEABILITY row 10, A-012, register, checker). Everything else awaits owner direction.
+
+## Round 6 amendments (applied 2026-11-07, owner: "apply the changes")
+PM5-001 -> D-044 (single Pages publisher, counter from state branch). PM5-002 -> D-045 (state branch, A-031). PM5-003/009/010 -> D-046, T-071. PM5-004 -> D-028 R6, T-058 (no PR-approval assertion). PM5-005 -> D-047. PM5-006/007 -> D-048. PM5-008/012 -> D-036, T-064..T-066. PM5-011 and small fixes -> D-049, D-032/T-072, D-033. Remaining Medium/Low items of round 5 not listed here stay as recorded in premortem/round-5.md. These amendments have not been independently reviewed until round 6 is recorded.
