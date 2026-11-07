@@ -111,5 +111,7 @@ D-057..D-061, T-073..T-075 added; Spotify deferred; TIDAL and Apple Music chosen
 ## Round 9 replan (2026-11-07, owner: no paid services; chose TIDAL + YouTube)
 D-062..D-064 added; Apple Music deferred; YouTube reinstated through the official Data API; T-074 now tests the YouTube adapter; R-060 added; no independent review yet.
 
-## Round 7 review (2026-11-07) — NOT applied
+## Round 7 review (2026-11-07) — fixes applied as round 10 (owner: apply fixes, YouTube-first; unreviewed)
 PM7-001..006 need: daily quota-paced YouTube schedule and backlog display; probe A-041 first and make release 1 YouTube-first; a YouTube matching rule under G-006; progress-based staleness; breaker allowance from queue releases; provider-isolated exit codes. See premortem/round-7-replan.md.
+
+PM7-001 -> D-065; PM7-002 -> D-066; PM7-003 -> D-067; PM7-004 -> D-068; PM7-005 -> D-069; PM7-006/007 -> D-070; PM7-008 -> D-065. T-074 extended; no new independent review of these fixes.

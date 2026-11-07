@@ -65,9 +65,9 @@ Convergence criterion 0 Critical/High residual: NOT met after the final permitte
 | R-058 | Apple Music cannot remove playlist items, so Recently Added replacement cannot be done there | Medium | Low | D-060 T-074 S-000a; deferred with Apple Music (D-062) | A-038 |
 | R-059 | Replan to two new providers is unreviewed and the provider-neutral interface hides provider differences | High | High | D-057,D-058 T-075 S-005 | R8 replan |
 | R-060 | YouTube Data API quota, OAuth refresh-token expiry and weak matching (no ISRC or barcode lookup) make the YouTube target unreliable | High | High | D-063,D-064 T-074 S-000a,S-002,S-004 | A-039 A-040 |
-| R-061 | YouTube first sync cannot finish on a weekly schedule at 50 quota units per insert | Critical | Critical | none yet (round-7 finding, not applied) | PM7-001 |
-| R-062 | A free TIDAL account probably cannot write playlists (free tier withdrawn), so TIDAL needs a paid plan | High | High | none yet (round-7 finding, not applied) | PM7-002 |
-| R-063 | No workable YouTube matching rule: no album, date, ISRC or barcode, so releases stay pending and burn search quota | High | High | none yet (round-7 finding, not applied) | PM7-003 |
-| R-064 | Weekly STALE alarms during the quota backlog train the owner to ignore alerts | High | High | none yet (round-7 finding, not applied) | PM7-004 |
-| R-065 | Circuit breaker allowance trips on queue draining | High | High | none yet (round-7 finding, not applied) | PM7-005 |
-| R-066 | Exit codes contradict provider isolation, so one provider's credential failure loses the other's progress | High | High | none yet (round-7 finding, not applied) | PM7-006 |
+| R-061 | YouTube first sync cannot finish on a weekly schedule at 50 quota units per insert | Critical | Critical | D-065 T-074 (fix applied R10, unreviewed) | PM7-001 |
+| R-062 | A free TIDAL account probably cannot write playlists (free tier withdrawn), so TIDAL needs a paid plan | High | High | D-066 T-074 (fix applied R10, unreviewed) | PM7-002 |
+| R-063 | No workable YouTube matching rule: no album, date, ISRC or barcode, so releases stay pending and burn search quota | High | High | D-067 T-074 (fix applied R10, unreviewed) | PM7-003 |
+| R-064 | Weekly STALE alarms during the quota backlog train the owner to ignore alerts | High | High | D-068 T-074 (fix applied R10, unreviewed) | PM7-004 |
+| R-065 | Circuit breaker allowance trips on queue draining | High | High | D-069 T-074 (fix applied R10, unreviewed) | PM7-005 |
+| R-066 | Exit codes contradict provider isolation, so one provider's credential failure loses the other's progress | High | High | D-070 T-074 (fix applied R10, unreviewed) | PM7-006 |
