@@ -102,3 +102,6 @@ Rebuilt 2026-11-07 (R4). Every success criterion has a row; every T-ID in tests/
 ## Steps without tests
 
 S-RETRO and S-KNOW own no tests; S-RETRO re-runs T-065 and the final mechanical check, S-KNOW is covered by T-045 and G-003.
+
+## Round-10 decisions
+D-071 -> T-019,T-051,T-069 (S-005); D-072 -> T-074 (S-005,S-008); D-073 -> T-074 (S-000a,S-005); D-074 -> T-055 (S-008); D-075 -> T-072,T-067,T-074 (S-000a,S-004); D-076 -> T-059 (S-008); D-077 -> T-057 (S-005); D-078 -> T-074 (S-000a,S-005).

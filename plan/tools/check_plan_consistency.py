@@ -98,7 +98,7 @@ for f in ["plan/PLAN.md", "plan/DECISIONS.md", "plan/GATES.md", "plan/OPERATIONS
         if re.search(r"YouTube|ytmusic|YT Music|YTMUSIC", l) and not re.search(r"D-043|deferred|removed|moot", l) and not l.startswith(ALLOW):
             errs.append(f"{f}:{i} mentions YouTube without a D-043 mark")
 # superseded phrases must not survive outside history files
-STALE = ("SPOTIFY_REAUTH_AT", "serves G-002a and the first G-002b run", "first G-002b run also uses the gate-rehearsal", "request K results", "uniqueness over all K.", "over K results", "cap K,", "caps K.", "x K tracks", "added through a PR approved", "reviewed PR to main", "deploy needs commit success only", "Reauth marker secret", "is the Environment secret")
+STALE = ("SPOTIFY_REAUTH_AT", "serves G-002a and the first G-002b run", "first G-002b run also uses the gate-rehearsal", "request K results", "uniqueness over all K.", "over K results", "cap K,", "caps K.", "x K tracks", "added through a PR approved", "reviewed PR to main", "deploy needs commit success only", "Reauth marker secret", "is the Environment secret", "Sunday 03:00 UTC + manual", "spread over several days", "second cron in sync.yml")
 for f in ["plan/PLAN.md", "plan/DECISIONS.md", "plan/GATES.md", "plan/OPERATIONS.md", "plan/ASSUMPTIONS.md", "plan/TRACEABILITY.md", "tests/TEST_PLAN.md", "HANDOFF.md"]:
     for i, l in enumerate(rd(f).splitlines(), 1):
         for ph in STALE:

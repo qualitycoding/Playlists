@@ -115,3 +115,6 @@ D-062..D-064 added; Apple Music deferred; YouTube reinstated through the officia
 PM7-001..006 need: daily quota-paced YouTube schedule and backlog display; probe A-041 first and make release 1 YouTube-first; a YouTube matching rule under G-006; progress-based staleness; breaker allowance from queue releases; provider-isolated exit codes. See premortem/round-7-replan.md.
 
 PM7-001 -> D-065; PM7-002 -> D-066; PM7-003 -> D-067; PM7-004 -> D-068; PM7-005 -> D-069; PM7-006/007 -> D-070; PM7-008 -> D-065. T-074 extended; no new independent review of these fixes.
+
+## Review of the round-7 fixes (2026-11-07, owner: "Yes apply them")
+PM10-001 -> D-071; PM10-002 -> D-072; PM10-003 -> D-073; PM10-004 -> D-074; PM10-005 -> D-075; PM10-006 -> D-076; PM10-007 -> D-077; PM10-008/009 -> D-078; PM10-010 -> propagation to PLAN, OPERATIONS, ASSUMPTIONS, GATES, TRACEABILITY, TEST_PLAN (T-019, T-051, T-055, T-057, T-059, T-069, T-072, T-074), HANDOFF and checker stale phrases. Reviewer: 0 Critical, 3 High before fixes; not re-reviewed. Report: premortem/round-8-review.md.
