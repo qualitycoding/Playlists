@@ -12,3 +12,4 @@
 2026-11-07: round-6 fixes applied (D-050..D-056); TEST_PLAN refrozen; no source, provider or deployment changes.
 2026-11-07: R7 re-check recorded (premortem/round-7-recheck.md); cleanup of stale text pending.
 2026-11-07: replan to TIDAL and Apple Music applied; provider research recorded; no source, provider or deployment changes.
+2026-11-07: replan to TIDAL and YouTube applied (D-062..D-064); no source, provider or deployment changes.

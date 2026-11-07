@@ -107,3 +107,6 @@ PM6-001 -> D-051; PM6-002 -> D-052; PM6-003 -> D-050 (Premium is a hard prerequi
 
 ## Round 8 replan (2026-11-07, owner: stop planning for Spotify, research other platforms, pick two)
 D-057..D-061, T-073..T-075 added; Spotify deferred; TIDAL and Apple Music chosen; risks R-056..R-059; no independent review yet.
+
+## Round 9 replan (2026-11-07, owner: no paid services; chose TIDAL + YouTube)
+D-062..D-064 added; Apple Music deferred; YouTube reinstated through the official Data API; T-074 now tests the YouTube adapter; R-060 added; no independent review yet.

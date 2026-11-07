@@ -17,7 +17,7 @@ Rebuilt 2026-11-07 (R4). Every success criterion has a row; every T-ID in tests/
 | 10 | All 75 frozen tests (except those deferred, D-043) and security scans pass; Pages smoke and rollback pass | T-037,T-045,T-046,T-047,T-048,T-049,T-050,T-065 | S-000b,S-009 | D-036 | AB-020 AB-021 | G-002a,G-002b |
 | 11 | Owner approves adapter, migration, history and live writes at the gates | T-034,T-040,T-058 | S-009 | D-028,D-029,D-038,D-052 | AB-012 AB-013 | G-001..G-006 |
 | 12 | Matching precision and recall reported against a labelled fixture with an agreed floor | T-061,T-062,T-067 | S-004,S-006 | D-032 | PM-006 AB-008 | G-006,G-002b |
-| 13 | A stale status is visible (STALE after 8 days) | T-055,T-032,T-074 | S-002,S-007 | D-031,D-051,D-053,D-054,D-057,D-058,D-059,D-060 | PM-005 AB-018 | — |
+| 13 | A stale status is visible (STALE after 8 days) | T-055,T-032,T-074 | S-002,S-007 | D-031,D-051,D-053,D-054,D-057,D-058,D-059,D-060,D-062,D-063,D-064 | PM-005 AB-018 | — |
 
 ## Tests
 
