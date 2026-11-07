@@ -9,3 +9,4 @@ Privacy facts 2026-11-07: collection, playlists and repo are public; D-027 relax
 Round 5 (final) not converged: 5 High (premortem/round-5.md). Owner must direct amendments 1-5 (one Pages deployer, state branch or Actions bypass, playlist-ID ledger plus rehearsal mode, honest approval channel under R-043, token rotation measurement), accept R-020 and R-043 by name, and S-000a probes must run before S-001.
 R6 applied 2026-11-07 (tests 72, decisions 49, steps 13): D-044..D-049 added; round-5 amendments 1-8 applied; independent round 6 (owner-authorised, beyond the protocol maximum) pending.
 Round 6 (extra) not converged: 4 High (PM6-001..004, premortem/round-6.md). Owner direction needed to apply their fixes; R-043 stays accepted.
+R7 fixes applied (D-050..D-056). Blocker: owner has no Spotify Premium (D-050, R-055). Next: mechanical re-check, then S-000a probes.

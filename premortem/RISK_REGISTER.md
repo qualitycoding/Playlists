@@ -1,7 +1,7 @@
 # Risk register
 Rebuilt 2026-11-07 (R4) and updated after independent round 4. Severity is a combined likelihood-and-impact judgement. Inherent = before the plan's controls; residual = after the R4 amendments, planner estimate adjusted to the round-4 reviewer's ratings where they were higher; R5 changes are not yet applied. Ratings of R-001, R-003, R-010, R-011, R-014 follow the independent pre-mortem. Source IDs (PM4 = round-4 narratives): C claims, CR code review, PM independent pre-mortem, AB independent adversarial.
-Totals: 54 risks. Inherent Critical 3, High 29, Medium 17, Low 5. Residual Critical 0, High 13, Medium 22, Low 19.
-Convergence criterion 0 Critical/High residual: NOT met after the final permitted round (round 5, premortem/round-5.md). Residual Highs after round 6 (planner estimate plus the round-6 reviewer's four new Highs R-051..R-054): R-007, R-011, R-020, R-021, R-023, R-026, R-041, R-043, R-047, R-051, R-052, R-053, R-054. Convergence NOT met after the owner-authorised extra round 6 (premortem/round-6.md). R-043 is an accepted risk; R-020 and R-043 must be accepted by name before READY. Residual ratings are planner estimates adjusted to the round-5 reviewer's ratings.
+Totals: 55 risks. Inherent Critical 3, High 30, Medium 17, Low 5. Residual Critical 0, High 11, Medium 25, Low 19.
+Convergence criterion 0 Critical/High residual: NOT met after the final permitted round (round 5, premortem/round-5.md). Residual Highs after the R7 fixes (planner estimate, awaiting the mechanical re-check): R-007, R-011, R-020, R-021, R-023, R-026, R-041, R-043, R-047, R-053, R-055. R-053 and R-055 stay High until the owner has Spotify Premium. R-043 is an accepted risk; R-020 and R-043 must be accepted by name before READY. Residual ratings are planner estimates adjusted to the round-5 reviewer's ratings.
 
 | ID | Risk | Inherent | Residual | Controls (decision, tests, steps, gates) | Sources |
 |---|---|---|---|---|---|
@@ -55,7 +55,8 @@ Convergence criterion 0 Critical/High residual: NOT met after the final permitte
 | R-048 | Dry-run or canary refresh orphans the rotated Spotify token | High | Medium | D-047 T-023,T-053 S-002 | PM5-005 |
 | R-049 | Legacy residue: Gemini key, Firebase/OAuth client, unrevoked YouTube secret | Medium | Low | D-048 T-064 S-001,S-008 | PM5-006 PM5-007 |
 | R-050 | Test and checker mechanics: deferred handling, T-066 scope, red tests turn main red, checker blind spots | Medium | Low | D-036 T-064,T-065,T-066 S-000b | PM5-008 PM5-012 PM5-013 PM5-014 |
-| R-051 | Nothing triggers the Pages deploy after a sync (cross-workflow needs, GITHUB_TOKEN pushes start no workflows) | High | High | none yet (round-6 finding, not applied) | PM6-001 |
-| R-052 | First live write to real playlists impossible: gate-rehearsal Environment bound to rehearsal mode | High | High | none yet (round-6 finding, not applied) | PM6-002 |
-| R-053 | Spotify Development Mode changes (linked_from removed, search cap 10, batch albums removed, Premium needed) break matching and identity | High | High | none yet (round-6 finding, not applied) | PM6-003 |
-| R-054 | Scheduled workflows and their staleness alarm are disabled after 60 days of repository inactivity | High | High | none yet (round-6 finding, not applied) | PM6-004 |
+| R-051 | Nothing triggers the Pages deploy after a sync (cross-workflow needs, GITHUB_TOKEN pushes start no workflows) | High | Medium | D-051 T-055,T-064 S-008 | PM6-001 |
+| R-052 | First live write to real playlists impossible: gate-rehearsal Environment bound to rehearsal mode | High | Medium | D-052 T-058,T-071 S-006,S-008,S-009 | PM6-002 |
+| R-053 | Spotify Development Mode changes (linked_from removed, search cap 10, batch albums removed, Premium needed) break matching and identity | High | High | D-050 T-061 S-000a,S-004 (fixtures from a Development Mode app; Premium needed) | PM6-003 |
+| R-054 | Scheduled workflows and their staleness alarm are disabled after 60 days of repository inactivity | High | Medium | D-053 T-055 S-000a,S-008 | PM6-004 |
+| R-055 | Owner has no Spotify Premium, which Development Mode requires, so no live Spotify run is possible | High | High | D-050 (hard prerequisite; owner must obtain Premium or decide otherwise) S-000a | PM6-003 A-032 |

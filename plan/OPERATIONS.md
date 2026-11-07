@@ -6,3 +6,5 @@ Logs and outputs: artist, album and release IDs are allowed because the collecti
 R4 note (D-043): release 1 has no YouTube Music target, credential or secret.
 ## Amendments R6 (2026-11-07)
 State lives on the `state` branch (D-045); pages.yml is the only publisher (D-044); rehearsal.yml and sync.yml bind mode to Environment (D-046). Cleanup list in D-048. Reauth marker secret SPOTIFY_REAUTH_AT and the token_rotated output (D-049). Dry-run token exception (D-047).
+## Amendments R7 (2026-11-07)
+Spotify Premium is required for the app owner (D-050); a lapse stops the sync and the dashboard shows it. pages.yml follows sync via workflow_run (D-051). Alarm outside the repository's schedule (D-053). Quarantine exit and per-target STALE (D-054). Move repository-level secrets to Environments and rotate the client secret afterwards (D-056).

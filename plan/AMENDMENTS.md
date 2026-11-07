@@ -101,3 +101,6 @@ PM5-001 -> D-044 (single Pages publisher, counter from state branch). PM5-002 ->
 
 ## Round 6 review (2026-11-07) — NOT applied
 PM6-001..004 (High) need: workflow_run trigger for pages.yml; first live write under sync with temporary reviewer and RUN_MODE; read-back by URI/ISRC and Development Mode fixtures; alarm outside the repo's own schedule. See premortem/round-6.md.
+
+## Round 7 fixes (applied 2026-11-07, owner: apply the fixes, no Premium)
+PM6-001 -> D-051; PM6-002 -> D-052; PM6-003 -> D-050 (Premium is a hard prerequisite the owner does not meet: A-032, R-055); PM6-004 -> D-053; PM6-005/006/011 -> D-054; PM6-007/013 -> D-052; PM6-008/010/009/012/014 -> D-055; PM6-015 -> D-056; PM6-016 mechanical text fixes. Not yet re-checked by anyone other than the planner.
