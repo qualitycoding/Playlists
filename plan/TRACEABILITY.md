@@ -1,15 +1,10 @@
-
-## v3.9 addendum traceability (2026-11-02)
-
-| Requirement | Artifact | Step | Verification |
-|---|---|---|---|
-| Gap ledger per planning root | `plan/ADDENDUM-V3.9-GAP.md` | S-ADD-001 | `v39_addendum_verify.py final` |
-| Planning-only scope freeze | D-900 in `plan/DECISIONS.md` | S-ADD-001 | verifier + retrospective |
-| Mutation three-tier priced CI, aggregator, report score gate | `reviews/MUTATION.md` | S-ADD-080 | verifier + first CI run (pending in CI) |
-| Split lesson/knowledge stores | G-003 in `plan/GATES.md`, `.checkpoints/state.json` | S-ADD-010/S-ADD-060 | verifier |
-| Full-context checkpoints / zero-context resume | `.checkpoints/state.json` | S-ADD-020 | verifier |
-| Assumption audit, reviews | `premortem/ASSUMPTION_AUDIT.md`, `reviews/` | S-ADD-030 | verifier |
-| Honest verification, deviations | `DEVIATIONS.md`, `EXECUTION_LOG.md` | S-ADD-040 | verifier |
-| Ephemeral protections | `plan/ENVIRONMENT.md` | S-ADD-050 | verifier |
-| CI platform matrix | `plan/CI-MATRIX.md` | S-ADD-070 | cold read |
-| Cold read / pre-mortem | this file, `premortem/RISK_REGISTER.md` | S-ADD-090 | verifier |
+# Traceability
+| Requirement | Evidence | Tests | Step | Gate |
+|---|---|---|---|---|
+| Discogs pagination/errors | C-007,C-008 | T-001..004 | S-003 | — |
+| Conservative matching | A-007 | T-005..009 | S-004 | G-006 |
+| Spotify/YT writes | A-005,C-001,C-005 | T-010,T-014..024,T-039 | S-005 | G-001,G-002 |
+| No false cache success | C-008 | T-014..016,T-035 | S-005 | — |
+| Cache/privacy | C-011 | T-011..013,T-026,T-034,T-047 | S-001,S-006 | G-004,G-005 |
+| Static dashboard | C-004,C-009 | T-025,T-031..033,T-043 | S-007 | G-002 |
+| Actions reliability | C-003,C-010,C-013 | T-027..030 | S-008 | — |

@@ -1,2 +1,2 @@
-
-Reading order: `HANDOFF.md` → `ADDENDUM-PLAN-V3.9.md` → `plan/PLAN.md`. Later protocol amendments take precedence only where the gap ledger says so.
+# Handoff
+Target qualitycoding/Playlists main @ 04a5b754ca4df44ad69e6ba4756145dde37eaeb3. Branch gen-20261107T154700Z-playlists-app-reliability. Protocol v3.15. Status BLOCKED — HUMAN DECISION REQUIRED. Planning only; no source code, secrets, playlists or deployment changed. Goal: reliable Discogs sync to Spotify master + six genres, Spotify Recently Added, YT Music master; Sunday 03:00 UTC + manual; static read-only Pages. Gates G-001..G-006 mandatory. Never expose credentials, collection/cache/unmatched data or browser auth publicly. ytmusicapi unofficial/not Google-supported.
