@@ -104,3 +104,6 @@ PM6-001..004 (High) need: workflow_run trigger for pages.yml; first live write u
 
 ## Round 7 fixes (applied 2026-11-07, owner: apply the fixes, no Premium)
 PM6-001 -> D-051; PM6-002 -> D-052; PM6-003 -> D-050 (Premium is a hard prerequisite the owner does not meet: A-032, R-055); PM6-004 -> D-053; PM6-005/006/011 -> D-054; PM6-007/013 -> D-052; PM6-008/010/009/012/014 -> D-055; PM6-015 -> D-056; PM6-016 mechanical text fixes. Not yet re-checked by anyone other than the planner.
+
+## Round 8 replan (2026-11-07, owner: stop planning for Spotify, research other platforms, pick two)
+D-057..D-061, T-073..T-075 added; Spotify deferred; TIDAL and Apple Music chosen; risks R-056..R-059; no independent review yet.

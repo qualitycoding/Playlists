@@ -10,3 +10,4 @@ Git smart-HTTP DNS failed; used GitHub API/Git Data API (L-20261102T085622Z). Co
 2026-11-07 round 6: owner asked for the round-5 amendments to be applied and a final extra review round beyond the protocol's five. Applied D-044..D-049 and test changes (T-071, T-072; 72 tests); TEST_PLAN refrozen. Round 6 is owner-authorised, outside the protocol maximum.
 2026-11-07 round 6: extra independent round (owner-authorised, beyond the maximum of five) did not converge (4 High). Recorded; amendments not applied; plan remains BLOCKED — HUMAN DECISION REQUIRED.
 2026-11-07 round 7: round-6 fixes applied (D-050..D-056). Owner has no Spotify Premium, which Development Mode requires; recorded as a hard prerequisite, not worked around.
+2026-11-07 round 8: owner stopped Spotify planning; replanned to TIDAL and Apple Music (D-057..D-061). Not independently reviewed; the round-7 stale-text cleanup is still pending.

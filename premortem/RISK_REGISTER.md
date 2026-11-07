@@ -1,7 +1,7 @@
 # Risk register
 Rebuilt 2026-11-07 (R4) and updated after independent round 4. Severity is a combined likelihood-and-impact judgement. Inherent = before the plan's controls; residual = after the R4 amendments, planner estimate adjusted to the round-4 reviewer's ratings where they were higher; R5 changes are not yet applied. Ratings of R-001, R-003, R-010, R-011, R-014 follow the independent pre-mortem. Source IDs (PM4 = round-4 narratives): C claims, CR code review, PM independent pre-mortem, AB independent adversarial.
-Totals: 55 risks. Inherent Critical 3, High 30, Medium 17, Low 5. Residual Critical 0, High 11, Medium 25, Low 19.
-Convergence criterion 0 Critical/High residual: NOT met after the final permitted round (round 5, premortem/round-5.md). Residual Highs after the R7 fixes (planner estimate, awaiting the mechanical re-check): R-007, R-011, R-020, R-021, R-023, R-026, R-041, R-043, R-047, R-053, R-055. R-053 and R-055 stay High until the owner has Spotify Premium. R-043 is an accepted risk; R-020 and R-043 must be accepted by name before READY. Residual ratings are planner estimates adjusted to the round-5 reviewer's ratings.
+Totals: 59 risks. Inherent Critical 3, High 33, Medium 18, Low 5. Residual Critical 0, High 12, Medium 26, Low 21.
+Convergence criterion 0 Critical/High residual: NOT met after the final permitted round (round 5, premortem/round-5.md). Residual Highs after the R8 replan (planner estimate, unreviewed): R-007, R-011, R-020, R-021, R-023, R-026, R-041, R-043, R-047, R-056, R-057, R-059. R-053 and R-055 are Spotify risks deferred with Spotify (D-057). R-043 is an accepted risk; R-020 and R-043 must be accepted by name before READY. Residual ratings are planner estimates adjusted to the round-5 reviewer's ratings.
 
 | ID | Risk | Inherent | Residual | Controls (decision, tests, steps, gates) | Sources |
 |---|---|---|---|---|---|
@@ -57,6 +57,10 @@ Convergence criterion 0 Critical/High residual: NOT met after the final permitte
 | R-050 | Test and checker mechanics: deferred handling, T-066 scope, red tests turn main red, checker blind spots | Medium | Low | D-036 T-064,T-065,T-066 S-000b | PM5-008 PM5-012 PM5-013 PM5-014 |
 | R-051 | Nothing triggers the Pages deploy after a sync (cross-workflow needs, GITHUB_TOKEN pushes start no workflows) | High | Medium | D-051 T-055,T-064 S-008 | PM6-001 |
 | R-052 | First live write to real playlists impossible: gate-rehearsal Environment bound to rehearsal mode | High | Medium | D-052 T-058,T-071 S-006,S-008,S-009 | PM6-002 |
-| R-053 | Spotify Development Mode changes (linked_from removed, search cap 10, batch albums removed, Premium needed) break matching and identity | High | High | D-050 T-061 S-000a,S-004 (fixtures from a Development Mode app; Premium needed) | PM6-003 |
+| R-053 | Spotify Development Mode changes (linked_from removed, search cap 10, batch albums removed, Premium needed) break matching and identity | High | Low | D-050 T-061 S-000a,S-004 (fixtures from a Development Mode app; Premium needed); deferred with Spotify (D-057) | PM6-003 |
 | R-054 | Scheduled workflows and their staleness alarm are disabled after 60 days of repository inactivity | High | Medium | D-053 T-055 S-000a,S-008 | PM6-004 |
-| R-055 | Owner has no Spotify Premium, which Development Mode requires, so no live Spotify run is possible | High | High | D-050 (hard prerequisite; owner must obtain Premium or decide otherwise) S-000a | PM6-003 A-032 |
+| R-055 | Owner has no Spotify Premium, which Development Mode requires, so no live Spotify run is possible | High | Low | D-050 (hard prerequisite; owner must obtain Premium or decide otherwise) S-000a; deferred with Spotify (D-057) | PM6-003 A-032 |
+| R-056 | TIDAL developer access, approval, cost or refresh-token behaviour differs from what the plan assumes | High | High | D-059,D-061 T-073 S-000a,S-002 | A-034 A-035 |
+| R-057 | Apple Music needs a paid developer membership, a subscription and owner reauthorisation about every 180 days, so unattended runs stop | High | High | D-060,D-061 T-074 S-000a,S-002 | A-036 A-037 |
+| R-058 | Apple Music cannot remove playlist items, so Recently Added replacement cannot be done there | Medium | Medium | D-060 T-074 S-000a | A-038 |
+| R-059 | Replan to two new providers is unreviewed and the provider-neutral interface hides provider differences | High | High | D-057,D-058 T-075 S-005 | R8 replan |

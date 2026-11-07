@@ -10,3 +10,4 @@ Round 5 (final) not converged: 5 High (premortem/round-5.md). Owner must direct 
 R6 applied 2026-11-07 (tests 72, decisions 49, steps 13): D-044..D-049 added; round-5 amendments 1-8 applied; independent round 6 (owner-authorised, beyond the protocol maximum) pending.
 Round 6 (extra) not converged: 4 High (PM6-001..004, premortem/round-6.md). Owner direction needed to apply their fixes; R-043 stays accepted.
 R7 fixes applied (D-050..D-056). Blocker: owner has no Spotify Premium (D-050, R-055). Next: mechanical re-check, then S-000a probes.
+R8 replan: Spotify deferred; TIDAL and Apple Music chosen (D-057..D-061). Owner questions: do you have a TIDAL subscription, an Apple Developer Program membership and an Apple Music subscription, and will you pay for them?
