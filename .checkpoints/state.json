@@ -147,10 +147,11 @@
       "test_plan_refrozen": true
     }
   },
-  "rounds_used": 5,
+  "rounds_used": 6,
   "rounds_max": 5,
   "steps": 13,
   "gate_decisions": {
     "G-001": "removed YouTube Music from release 1 (D-043), 2026-11-07"
-  }
+  },
+  "rounds_note": "round 6 was an owner-authorised extra round beyond rounds_max 5; not converged (4 High)"
 }

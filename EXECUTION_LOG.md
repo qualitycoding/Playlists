@@ -8,3 +8,4 @@
 2026-11-07: privacy relaxation applied (D-027, D-023, D-035, tests); no source or provider changes.
 2026-11-07: round 5 recorded; mechanical fixes applied; checker extended. No source, provider or deployment changes.
 2026-11-07: round-5 amendments applied (D-044..D-049, T-071/T-072, register re-rated by planner); no source, provider or deployment changes.
+2026-11-07: round 6 recorded (premortem/round-6.md, INDEPENDENT_PREMORTEM_R6.md); register R-051..R-054 added; no source, provider or deployment changes.
