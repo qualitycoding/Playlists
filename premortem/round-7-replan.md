@@ -1,0 +1,7 @@
+# Pre-mortem round 7: review of the TIDAL + YouTube replan (independent, 2026-11-07)
+Fresh-context subagent (opus). Full report: premortem/INDEPENDENT_PREMORTEM_R7.md. Owner-authorised, beyond the protocol maximum of five.
+Result: Critical 1, High 5, Medium 12, Low 2. Convergence NOT met. Fixes not applied: awaiting owner direction.
+Critical PM7-001: the YouTube first sync cannot finish on a weekly schedule (about 200 inserts a day at 50 units each). High: PM7-002 a free TIDAL account probably cannot write playlists (free tier withdrawn April 2024, A-041); PM7-003 no workable YouTube matching rule (no album, date, ISRC or barcode); PM7-004 weekly STALE alarms during the multi-week backlog; PM7-005 the circuit breaker allowance trips on queue draining; PM7-006 exit codes (D-026) contradict provider isolation (D-058).
+Checked against current sources by the reviewer: Google's quota page (updated 2026-11-03) gives search.list its own 100-calls-a-day allowance; refresh tokens for apps in Testing expire after 7 days.
+Notable Mediums: T-065 requires D-043 marks on deferrals that cite D-057; state/token.enc shared by both providers; reinstating YouTube skipped a G-001-style gate; YouTube write scope can manage the whole channel; legacy YouTube IDs and existing playlists not covered by migration; unmarked Spotify/Apple/old-YouTube wording remains.
+Reviewer's suggested minimal release 1: one YouTube master playlist, add-only, paced daily.

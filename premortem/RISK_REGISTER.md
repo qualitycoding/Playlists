@@ -1,7 +1,7 @@
 # Risk register
 Rebuilt 2026-11-07 (R4) and updated after independent round 4. Severity is a combined likelihood-and-impact judgement. Inherent = before the plan's controls; residual = after the R4 amendments, planner estimate adjusted to the round-4 reviewer's ratings where they were higher; R5 changes are not yet applied. Ratings of R-001, R-003, R-010, R-011, R-014 follow the independent pre-mortem. Source IDs (PM4 = round-4 narratives): C claims, CR code review, PM independent pre-mortem, AB independent adversarial.
-Totals: 60 risks. Inherent Critical 3, High 34, Medium 18, Low 5. Residual Critical 0, High 12, Medium 25, Low 23.
-Convergence criterion 0 Critical/High residual: NOT met after the final permitted round (round 5, premortem/round-5.md). Residual Highs after the R9 replan (planner estimate, unreviewed): R-007, R-011, R-020, R-021, R-023, R-026, R-041, R-043, R-047, R-056, R-059, R-060. R-053 and R-055 are Spotify risks deferred with Spotify (D-057). R-043 is an accepted risk; R-020 and R-043 must be accepted by name before READY. Residual ratings are planner estimates adjusted to the round-5 reviewer's ratings.
+Totals: 66 risks. Inherent Critical 4, High 39, Medium 18, Low 5. Residual Critical 1, High 17, Medium 25, Low 23.
+Convergence criterion 0 Critical/High residual: NOT met after the final permitted round (round 5, premortem/round-5.md). Residual Critical/High after round 7 (planner estimate plus the reviewer's findings): R-007, R-011, R-020, R-021, R-023, R-026, R-041, R-043, R-047, R-056, R-059, R-060, R-061, R-062, R-063, R-064, R-065, R-066. Convergence NOT met (premortem/round-7-replan.md). R-053 and R-055 are Spotify risks deferred with Spotify (D-057). R-043 is an accepted risk; R-020 and R-043 must be accepted by name before READY. Residual ratings are planner estimates adjusted to the round-5 reviewer's ratings.
 
 | ID | Risk | Inherent | Residual | Controls (decision, tests, steps, gates) | Sources |
 |---|---|---|---|---|---|
@@ -65,3 +65,9 @@ Convergence criterion 0 Critical/High residual: NOT met after the final permitte
 | R-058 | Apple Music cannot remove playlist items, so Recently Added replacement cannot be done there | Medium | Low | D-060 T-074 S-000a; deferred with Apple Music (D-062) | A-038 |
 | R-059 | Replan to two new providers is unreviewed and the provider-neutral interface hides provider differences | High | High | D-057,D-058 T-075 S-005 | R8 replan |
 | R-060 | YouTube Data API quota, OAuth refresh-token expiry and weak matching (no ISRC or barcode lookup) make the YouTube target unreliable | High | High | D-063,D-064 T-074 S-000a,S-002,S-004 | A-039 A-040 |
+| R-061 | YouTube first sync cannot finish on a weekly schedule at 50 quota units per insert | Critical | Critical | none yet (round-7 finding, not applied) | PM7-001 |
+| R-062 | A free TIDAL account probably cannot write playlists (free tier withdrawn), so TIDAL needs a paid plan | High | High | none yet (round-7 finding, not applied) | PM7-002 |
+| R-063 | No workable YouTube matching rule: no album, date, ISRC or barcode, so releases stay pending and burn search quota | High | High | none yet (round-7 finding, not applied) | PM7-003 |
+| R-064 | Weekly STALE alarms during the quota backlog train the owner to ignore alerts | High | High | none yet (round-7 finding, not applied) | PM7-004 |
+| R-065 | Circuit breaker allowance trips on queue draining | High | High | none yet (round-7 finding, not applied) | PM7-005 |
+| R-066 | Exit codes contradict provider isolation, so one provider's credential failure loses the other's progress | High | High | none yet (round-7 finding, not applied) | PM7-006 |

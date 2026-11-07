@@ -12,3 +12,4 @@ Round 6 (extra) not converged: 4 High (PM6-001..004, premortem/round-6.md). Owne
 R7 fixes applied (D-050..D-056). Blocker: owner has no Spotify Premium (D-050, R-055). Next: mechanical re-check, then S-000a probes.
 R8 replan: Spotify deferred; TIDAL and Apple Music chosen (D-057..D-061). Owner questions: do you have a TIDAL subscription, an Apple Developer Program membership and an Apple Music subscription, and will you pay for them?
 R9: TIDAL + YouTube, no paid services. Open: free TIDAL account playlist write (A-041), YouTube refresh-token and quota behaviour (A-039, A-040), stale-text cleanup, independent review of the replan. (D-043 superseded by D-062)
+Round 7 not converged: 1 Critical, 5 High on the TIDAL + YouTube replan (premortem/round-7-replan.md). Owner direction needed to apply fixes. Reviewer's minimal release 1: one YouTube master playlist, add-only, paced daily. (D-043 superseded by D-062)
