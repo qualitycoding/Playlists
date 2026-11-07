@@ -17,7 +17,7 @@
     "github_api": "reachable",
     "registries": "not_probed",
     "provider_credentials": "not_inspected",
-    "independent_agent": "unavailable"
+    "independent_agent": "used: general-purpose subagent, model opus (2026-11-07)"
   },
   "lesson_store": {
     "head": "39c9e52b8d9e8405328e13efb6f7a426b3437dec",
@@ -36,9 +36,9 @@
   },
   "claims": {
     "total": 14,
-    "verified": 7,
+    "verified": 8,
     "corroborated": 0,
-    "single_source": 7,
+    "single_source": 6,
     "inferred": 0
   },
   "tests": 50,
@@ -73,10 +73,31 @@
     },
     "licence_review_complete": false
   },
-  "status": "BLOCKED — HUMAN DECISION REQUIRED",
+  "status": "BLOCKED \u2014 HUMAN DECISION REQUIRED",
   "assumption_audit": {
     "confirmed": 3,
     "falsified": 0,
     "unverifiable": 18
+  },
+  "independent_reviews": {
+    "premortem": {
+      "report": "premortem/INDEPENDENT_PREMORTEM.md",
+      "risks": 20,
+      "critical": 0,
+      "high": 9,
+      "medium": 8,
+      "low": 3,
+      "converged": false
+    },
+    "adversarial": {
+      "report": "reviews/INDEPENDENT_ADVERSARIAL_REVIEW.md",
+      "breaks": 27,
+      "critical": 3,
+      "high": 15,
+      "medium": 7,
+      "low": 2
+    },
+    "assumption_audit_4_7": "not_run_independently",
+    "reconciled_into_register": false
   }
 }

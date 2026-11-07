@@ -1,6 +1,6 @@
 # S-000 — Intake and preflight
 
-**Status: BLOCKED — HUMAN DECISION REQUIRED.** Active profile: software. Claims: 14 (verified 7, corroborated 0, single-source 7, inferred 0). Tests: 50 (36 unit, 14 integration/operational/security/performance/deployment). Steps: 11. Gates: 6. Risks: Critical 3, High 8, Medium 6, Low 0. Assumption audit: 3 confirmed, 0 falsified, 18 unverifiable. Code review: 3 Critical, 4 High, 3 Medium. Independent adversarial breaks: not run. Mutation testing opted out (D-014).
+**Status: BLOCKED — HUMAN DECISION REQUIRED.** Active profile: software. Claims: 14 (verified 8, corroborated 0, single-source 6, inferred 0). Tests: 50 (36 unit, 14 integration/operational/security/performance/deployment). Steps: 12. Gates: 6. Risks: Critical 3, High 8, Medium 6, Low 0. Assumption audit: 3 confirmed, 0 falsified, 18 unverifiable. Code review: 3 Critical, 4 High, 3 Medium. Independent pre-mortem (R3, 2026-11-07): 20 risks, 0 Critical/9 High/8 Medium/3 Low residual. Independent adversarial review (2026-11-07): 27 breaks, 3 Critical/15 High/7 Medium/2 Low. Independent reports not yet reconciled into the register or plan; amendments pending owner approval. Mutation testing opted out (D-014).
 
 ## Goal and scope
 
@@ -41,4 +41,4 @@ Out of scope: public multi-user service, paid hosting, public API server, playli
 
 ## Blockers
 
-R0 incomplete (223 indexed lessons/298 knowledge entries; only 13/8 read fully); R5 independent review unavailable; R6 live provider/registry tests not run; R7 licence/completeness review incomplete; no independent Phase 4 pre-mortem or 4.7 audit. Critical/High risks remain. Do not implement until resolved. This plan is not protocol-v3.15 READY.
+R0 incomplete (223 indexed lessons/298 knowledge entries; only 13/8 read fully); R5 independent review run 2026-11-07 (27 breaks open); R6 live provider/registry tests not run; R7 licence/completeness review incomplete; independent Phase 4 pre-mortem run once (convergence not met; no amended round yet); 4.7 assumption audit still not independent. Critical/High risks remain. Do not implement until resolved. This plan is not protocol-v3.15 READY.
