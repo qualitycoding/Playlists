@@ -44,8 +44,8 @@
   "tests": 70,
   "risks": {
     "critical": 3,
-    "high": 20,
-    "medium": 15,
+    "high": 25,
+    "medium": 17,
     "low": 5
   },
   "gates": [
@@ -111,13 +111,23 @@
       "earlier_critical_high_closed": 5,
       "partial": 19,
       "open": 2
+    },
+    "premortem_round5": {
+      "report": "premortem/INDEPENDENT_PREMORTEM_R5.md",
+      "narratives": 21,
+      "critical": 0,
+      "high": 5,
+      "medium": 13,
+      "low": 3,
+      "converged": false,
+      "final_round": true
     }
   },
   "residual_risks_planner_estimate_unreviewed": {
     "critical": 0,
-    "high": 3,
-    "medium": 18,
-    "low": 22
+    "high": 13,
+    "medium": 20,
+    "low": 17
   },
   "decisions": 43,
   "amendments": {
@@ -137,7 +147,7 @@
       "test_plan_refrozen": true
     }
   },
-  "rounds_used": 4,
+  "rounds_used": 5,
   "rounds_max": 5,
   "steps": 13,
   "gate_decisions": {

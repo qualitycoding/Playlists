@@ -16,12 +16,12 @@ Maps each finding of the independent pre-mortem (PM) and adversarial review (AB)
 | PM-011 | D-035 | T-056 | S-001 |  |
 | PM-012 | D-037 | T-062 | S-006 |  |
 | PM-013 | D-036 | T-063,T-037 | S-009 |  |
-| PM-014 | D-030 | T-029 | S-000 |  |
+| PM-014 | D-030 | T-029 | S-000a |  |
 | PM-015 | D-024 | T-057 | S-005 | K unmeasured (A-026) |
 | PM-016 | D-038 | — | G-005 | OWNER DECISION open (visibility versus free Pages) |
-| PM-017 | D-024 | T-047 | S-000,S-005 | A-028 unmeasured |
-| PM-018 | D-030,D-036 | T-065 | S-000 | traceability rebuilt; Python version chosen in S-000 |
-| PM-019 | D-037 | — | S-000 | diagnosis performed in S-000 |
+| PM-017 | D-024 | T-047 | S-000a,S-005 | A-028 unmeasured |
+| PM-018 | D-030,D-036 | T-065 | S-000b | traceability rebuilt; Python version chosen in S-000b |
+| PM-019 | D-037 | — | S-000a | diagnosis performed in S-000a |
 | PM-020 | D-038 | T-022 | G-001 | OWNER DECISION open (dedicated account or removal) |
 | AB-001 | D-034 | T-001,T-002 | S-003 |  |
 | AB-002 | D-034 | T-004 | S-003 |  |
@@ -42,8 +42,8 @@ Maps each finding of the independent pre-mortem (PM) and adversarial review (AB)
 | AB-017 | D-036 | T-022,T-063 | S-002 |  |
 | AB-018 | D-031 | T-055 | S-007 |  |
 | AB-019 | D-031 | T-023,T-039 | S-005,S-008 |  |
-| AB-020 | D-036 | T-065 | S-000 | PARTIAL: executable red tests are not written yet; they are the last action of S-000 |
-| AB-021 | D-036 | T-065 | S-000 | counts corrected; T-035/T-043 clarified; ADDENDUM-V3.9-STATUS left unedited |
+| AB-020 | D-036 | T-065 | S-000b | PARTIAL: executable red tests are not written yet; they are the last action of S-000b |
+| AB-021 | D-036 | T-065 | S-000b | counts corrected; T-035/T-043 clarified; ADDENDUM-V3.9-STATUS left unedited |
 | AB-022 | D-030 | T-064 | S-008 |  |
 | AB-023 | D-039 | T-066 | S-007 |  |
 | AB-024 | D-023 | T-051 | S-005 | A-025 unverified |
@@ -53,7 +53,7 @@ Maps each finding of the independent pre-mortem (PM) and adversarial review (AB)
 
 ## Open after amendment
 - Owner decisions: PM-016 (repository visibility versus free Pages), PM-020 (ytmusicapi account or removal), recall floor value, Environment alternative if unavailable (A-022).
-- Partial: AB-020 (executable red tests and full-file manifest happen in S-000).
+- Partial: AB-020 (executable red tests and full-file manifest happen in S-000b).
 - Not addressed: AB-026.
 - Unverified assumptions A-022..A-028 are carried as risks, not facts.
 
@@ -73,7 +73,7 @@ Maps each finding of the independent pre-mortem (PM) and adversarial review (AB)
 | PM4-010 | D-034 | T-060 | S-005 | cross-release URI ledger |
 | PM4-011 | D-024 | T-057 | S-005 | re-anchor baseline |
 | PM4-012 | D-032,D-036 | T-061,T-067 | S-002,S-004 | private report split; fixture freeze point at end of S-002 |
-| PM4-013 | D-036 | T-065 | S-000a,S-000b | S-000 split |
+| PM4-013 | D-036 | T-065 | S-000a,S-000b | S-000b split |
 | PM4-014 | D-032 | T-061,T-067 | S-004 | track, year and Various rules; master-lookup budget; floor at G-002b only |
 | PM4-015 | D-040 | T-069 | S-004 | explicit genre map |
 | PM4-016 | D-042 | T-058 | S-008 | live mode only in Actions on main; pending-run behaviour documented |
@@ -92,3 +92,6 @@ PM-020 and R-006/R-013 resolved for release 1 by D-043 (YouTube Music removed); 
 
 ## Privacy facts (2026-11-07)
 Owner stated the Discogs collection and Spotify playlists are public; the repository is public (API-verified). D-027 relaxed, D-023 and D-035 scope wording corrected (playlist-modify-public must stay for public playlists), PM-016 resolved (repository stays public; no visibility change planned), R-003/R-010/R-019/R-032/R-036 re-rated.
+
+## Round 5 (2026-11-07, final permitted round) — NOT applied
+PM5-001..PM5-005 (High) need amendments 1-5 of premortem/INDEPENDENT_PREMORTEM_R5.md; PM5-006..PM5-021 are Medium or Low. Applied now: mechanical fixes only (S-000a/S-000b citations, D-043 marks, TRACEABILITY row 10, A-012, register, checker). Everything else awaits owner direction.

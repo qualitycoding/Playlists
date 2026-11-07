@@ -6,3 +6,4 @@
 2026-11-07 (R5): applied round-4 amendments except agent-identity separation; checker run. No source, provider, store or deployment changes.
 2026-11-07: G-001 decided (remove YouTube Music); GATE-G-001.md committed; plan, decisions, tests, register updated. No source, provider or deployment changes.
 2026-11-07: privacy relaxation applied (D-027, D-023, D-035, tests); no source or provider changes.
+2026-11-07: round 5 recorded; mechanical fixes applied; checker extended. No source, provider or deployment changes.

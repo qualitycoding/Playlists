@@ -68,8 +68,34 @@ for line in rd("tests/FROZEN_MANIFEST.sha256").splitlines():
     h, p = line.split(None, 1); p = p.strip().lstrip("*"); listed.add(p)
     if hashlib.sha256((root / p).read_bytes()).hexdigest() != h: errs.append(f"manifest mismatch {p}")
 LEGACY = {"tests/test_sync.py"}  # hashed only after the S-000 rewrite (D-036)
-for f in (root / "tests").iterdir():
-    rel = f"tests/{f.name}"
-    if f.is_file() and rel not in listed and rel != "tests/FROZEN_MANIFEST.sha256" and rel not in LEGACY: errs.append(f"{rel} not in manifest")
+for f in (root / "tests").rglob("*"):
+    rel = f.relative_to(root).as_posix()
+    if f.is_file() and rel not in listed and rel != "tests/FROZEN_MANIFEST.sha256" and rel not in LEGACY and "__pycache__" not in rel: errs.append(f"{rel} not in manifest")
+
+# S and G IDs cited in plan documents must exist
+step_ids = set(steps)
+gate_ids = set(re.findall(r"\bG-\d{3}[ab]?\b", rd("plan/GATES.md")))
+for f in ["plan/AMENDMENTS.md", "premortem/RISK_REGISTER.md", "plan/TRACEABILITY.md", "plan/PLAN.md", "plan/DECISIONS.md", "HANDOFF.md"]:
+    txt = rd(f)
+    for sid in set(re.findall(r"\bS-\d{3}[ab]?\b", txt)):
+        if sid not in step_ids: errs.append(f"{f} cites missing step {sid}")
+    for gid in set(re.findall(r"\bG-\d{3}[ab]?\b", txt)):
+        if gid not in gate_ids: errs.append(f"{f} cites missing gate {gid}")
+# deferred tests (D-043): declared lines exist, IDs valid, no criterion relies only on deferred tests
+m1 = re.search(r"Deferred in full \(D-043\): ([^.]*)\.", tp); m2 = re.search(r"Partly deferred \(D-043\): ([^.]*)\.", tp)
+full = set(re.findall(r"T-(\d{3})", m1.group(1))) if m1 else set()
+part = set(re.findall(r"T-(\d{3})", m2.group(1))) if m2 else set()
+if not m1 or not m2: errs.append("TEST_PLAN lacks the deferred-test lines")
+for t in full | part:
+    if t not in ids: errs.append(f"deferred T-{t} not in TEST_PLAN")
+for l in tr.splitlines():
+    mm = re.match(r"^\| (\d+) \| [^|]* \| ([^|]*) \|", l)
+    if mm and not (expand(mm.group(2)) - full): errs.append(f"criterion {mm.group(1)} relies only on deferred tests")
+# YouTube text must be marked (D-043 / deferred / removed) or sit in an allowed decision line
+ALLOW = ("D-011", "D-018", "D-038", "D-043", "G-001", "A-006")
+for f in ["plan/PLAN.md", "plan/DECISIONS.md", "plan/GATES.md", "plan/OPERATIONS.md", "plan/ASSUMPTIONS.md", "plan/TRACEABILITY.md", "tests/TEST_PLAN.md", "HANDOFF.md"]:
+    for i, l in enumerate(rd(f).splitlines(), 1):
+        if re.search(r"YouTube|ytmusic|YT Music|YTMUSIC", l) and not re.search(r"D-043|deferred|removed|moot", l) and not l.startswith(ALLOW):
+            errs.append(f"{f}:{i} mentions YouTube without a D-043 mark")
 print(f"tests={len(ids)} (unit {len(unit)}, other {len(other)}) steps={len(steps)} decisions={len(dids)} risks={len(tab)} criteria={crit_tr}")
 print("OK" if not errs else "FAIL:\n" + "\n".join(errs)); sys.exit(1 if errs else 0)
