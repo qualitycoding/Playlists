@@ -1,0 +1,2 @@
+# R4 Depth
+Inspected Spotipy OAuth signature, sync/cache flow, dashboard fallback and weekly workflow. Provider docs Tier1 but single publisher each; confidence single-source. Job details unavailable; cause unknown.

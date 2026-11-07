@@ -1,0 +1,2 @@
+# R2 Breadth
+yt music api unofficial/not Google-supported; official YouTube Data API fit with Music playlists unresolved. Spotipy OAuth has no refresh_token kwarg. Spotify add docs max100. Actions history has failed sync runs; CI/Pages passed Nov2; job detail unavailable. Sources: ytmusicapi, Google API, Actions history, public cache/unmatched.

@@ -1,2 +1,8 @@
-# Gates
-G-001 before YT Music writes: compare ytmusicapi (unofficial) and official YouTube Data API; owner chooses/accepts/removes. G-002 before first live playlist write and production Pages deploy: green CI, dry-run diff, targets, idempotency and rollback; owner approves. G-003 before lesson/knowledge push: schema/secret scan, R7 register; owner confirms stores. G-004 before cache migration: backup/checksum, remote read-back, duplicate report; owner approves. G-005 before history rewrite/force push/purge/visibility change: exposure inventory, impact, backup; owner approves. G-006 before matching beyond exact unique: labelled fixture precision report; owner approves. Each gate halts and requires committed GATE-<id>.md.
+
+## G-003 — split learning stores (v3.9)
+
+Lessons and knowledge are pushed to **separate** stores: the `Lessons`
+repository and the `knowledge` repository. G-003 requests the destinations at
+plan close; **do-not-push** either store until human sign-off; the documented
+bundle fallback applies when sign-off is withheld. Store publication never
+holds up the repository amendment's completion record.

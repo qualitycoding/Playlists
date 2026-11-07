@@ -1,2 +1,26 @@
-# Decisions
-D-001 Actions sole live sync executor; Pages read-only. D-002 no Express API on Pages. D-003 public status allowlist only. D-004 encrypt state or keep outside public repo; no plaintext fallback. D-005 legacy cache unknown until remote read-back. D-006 per-destination completion. D-007 reconcile membership before insert. D-008 exact unique artist/title; reject edition/year/track conflicts. D-009 master/genre add-only. D-010 Recently Added alone replaced after full top20/max100 validation and snapshot. D-011 no YT Recently Added. D-012 Discogs errors/incomplete pages abort before writes. D-013 fix unsupported SpotifyOAuth refresh_token kwarg via verified Spotipy token cache; invalid_grant requires reauth. D-014 mutation testing opt-out first cycle. D-015 missing playlist ID hard failure. D-016 remove browser secrets/token exchange/Firebase/Drive routes unless justified. D-017 verify Spotipy method against current Spotify API max100. D-018 ytmusicapi gated; evaluate official YouTube Data API. D-019 no history rewrite without G-005. D-020 least privilege, contents:write only state commit. D-021 BLOCKED pending research/reviews/audits.
+
+## Addendum v3.9 decisions (2026-11-02)
+
+- **D-900** — Planning-only amendment. Product scope, public interfaces,
+  expected test behaviour, performance targets and human gates do not change,
+  except the mandatory split G-003 lesson/knowledge store semantics.
+- **D-901** — Source-branch drift: the planning source branch tip `3a8641ba2750`
+  is the rollout phase's `plan: add protocol v3.9 addendum` commit, a direct
+  child of the audited source commit `7f12ea432d83`. The implementation
+  branch descends from `3a8641ba2750`, which descends from the audited commit;
+  no newer planning was overwritten or rebased away.
+- **D-902** — No platform expansion: no new OS/architecture/runtime support is
+  claimed; CI coverage is recorded as plan-level jobs/waivers only.
+- **D-903** — No release, deployment or package publication is authorised or
+  planned by this amendment.
+- **D-904** — Ambiguities resolved from existing plan artifacts and repository
+  evidence only; defaults follow the addendum's no-added-platform / explicit
+  waiver rule.
+- **D-905** — Local build and test execution is not available in the ephemeral
+  sandbox; the CI matrix jobs are the authoritative execution venue (honest
+  substitution; see DEVIATIONS.md).
+- **D-906** — Fresh-context independent review is unavailable in this
+  environment; the cold read is recorded as a substitution with High risk
+  (S-ADD-090), not claimed as an independent pass.
+- **D-980** — Mutation testing design: see `reviews/MUTATION.md` (priced
+  three-tier trigger strategy, one aggregator job, report-based score gate).

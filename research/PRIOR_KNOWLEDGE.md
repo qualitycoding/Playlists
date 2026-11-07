@@ -1,7 +1,4 @@
-
-## R0 prior-knowledge load — v3.9 addendum (2026-11-02)
-
-Loaded knowledge-store topics relevant to this amendment: planning protocol
-v3.9 change record, mutation-in-CI pricing practice, split lesson/knowledge
-store semantics, ephemeral-environment durable-mount discipline. No
-repository product knowledge is altered by this amendment.
+# R0 prior knowledge
+Stores read: Lessons HEAD 39c9e52b8d9e8405328e13efb6f7a426b3437dec; knowledge HEAD dfb2a8e3fe34ea1ab519860eb97e87ed9e875ba7. Indexes/taxonomies read. Tag screening: applies:all, implementation-relevant domain:audio, tech:github/github-actions/git/python/javascript/typescript/nodejs/npm/vite. 223 lesson and 298 knowledge candidates; 13 lessons and 8 knowledge items read fully. R0 incomplete; blocks READY.
+Applied: L-20261007T150100Z-no-credentials-in-command-lines (D-020/T-026); L-20261015T090000Z-public-repo-artifacts-are-publication (D-003/004); L-20261102T085622Z-git-transport-blocked-use-git-database-api (API write); L-20261009T193601Z-plan-assumed-hosts-reachable (S-000 probes); L-20261106T123000Z-cold-read-explicit-references (traceability); L-20261009T234120Z-readme-claims-not-tied-to-a-test (tests); L-20261004T162211Z-frozen-tests-drifted-from-harness (freeze); L-20261004T162218Z-unmeasured-claims-stated-as-fact (no invented baseline); L-20261105T221000Z-source-facts-lost-in-context-reset (source logs); L-20261101T042000Z-commit-gate-records-with-response (gate record); L-20261101T042300Z-probe-knowledge-store-dont-adopt-defaults (store probe); L-20261102T085700Z-rollout-addendum-commits-cause-predictable-tip-drift (parent chain); L-20261107T135500Z-shallow-flatten-rendered-object-text (rendered UI test).
+Reused knowledge: K-20261104T003007Z-versioned-github-runner-labels; K-20261104T004300Z-immutable-github-action-pins; K-20261009T160120Z-actions-blob-unreachable; K-20261031T100200Z-github-actions-default-shell-pipefail; K-20261102T231600Z-pages-first-build-startup-failure; K-20261102T230400Z-dom-append-does-not-flatten-arrays; K-20261009T160119Z-vite-vitest-node; K-20261102T085800Z-github-git-database-api-writes-when-transport-blocked. Full R0 not claimed.
