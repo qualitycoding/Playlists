@@ -1,0 +1,165 @@
+{
+ "items": 16036,
+ "fetched": 16036,
+ "pages": 161,
+ "distinct_release_ids": 15458,
+ "with_master": 14318,
+ "genres": [
+  [
+   "Rock",
+   12579
+  ],
+  [
+   "Electronic",
+   3994
+  ],
+  [
+   "Pop",
+   2716
+  ],
+  [
+   "Funk / Soul",
+   785
+  ],
+  [
+   "Hip Hop",
+   536
+  ],
+  [
+   "Folk, World, & Country",
+   441
+  ],
+  [
+   "Jazz",
+   250
+  ],
+  [
+   "Reggae",
+   188
+  ],
+  [
+   "Stage & Screen",
+   177
+  ],
+  [
+   "Blues",
+   157
+  ],
+  [
+   "Latin",
+   84
+  ],
+  [
+   "Classical",
+   78
+  ],
+  [
+   "Non-Music",
+   58
+  ],
+  [
+   "Children's",
+   6
+  ],
+  [
+   "Brass & Military",
+   3
+  ]
+ ],
+ "formats": [
+  [
+   "CD",
+   8929
+  ],
+  [
+   "Vinyl",
+   4344
+  ],
+  [
+   "File",
+   3039
+  ],
+  [
+   "All Media",
+   374
+  ],
+  [
+   "CDr",
+   317
+  ],
+  [
+   "DVD",
+   269
+  ],
+  [
+   "Box Set",
+   246
+  ],
+  [
+   "Lathe Cut",
+   18
+  ],
+  [
+   "VHS",
+   15
+  ],
+  [
+   "Flexi-disc",
+   9
+  ],
+  [
+   "Blu-ray",
+   4
+  ],
+  [
+   "Cassette",
+   3
+  ],
+  [
+   "Hybrid",
+   2
+  ],
+  [
+   "DVDr",
+   1
+  ],
+  [
+   "SACD",
+   1
+  ]
+ ],
+ "sample_track_counts": [
+  10,
+  7,
+  23,
+  14,
+  16,
+  14,
+  11,
+  12,
+  14,
+  15,
+  11,
+  2,
+  3,
+  7,
+  3,
+  4,
+  17,
+  5,
+  9,
+  3,
+  11,
+  10,
+  7,
+  15,
+  11,
+  8,
+  15,
+  4,
+  7,
+  13
+ ],
+ "mean_tracks": 10.0,
+ "est_total_tracks": 160895
+}

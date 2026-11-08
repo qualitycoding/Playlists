@@ -1,6 +1,6 @@
 # Risk register
 Rebuilt 2026-11-07 (R4) and updated after independent round 4. Severity is a combined likelihood-and-impact judgement. Inherent = before the plan's controls; residual = after the R4 amendments, planner estimate adjusted to the round-4 reviewer's ratings where they were higher; R5 changes are not yet applied. Ratings of R-001, R-003, R-010, R-011, R-014 follow the independent pre-mortem. Source IDs (PM4 = round-4 narratives): C claims, CR code review, PM independent pre-mortem, AB independent adversarial.
-Totals: 68 risks. Inherent Critical 4, High 41, Medium 18, Low 5. Residual Critical 1, High 17, Medium 27, Low 23.
+Totals: 69 risks. Inherent Critical 5, High 41, Medium 18, Low 5. Residual Critical 2, High 17, Medium 27, Low 23.
 Convergence criterion 0 Critical/High residual: NOT met after the final permitted round (round 5, premortem/round-5.md). Residual Critical/High after round 7 (planner estimate plus the reviewer's findings): R-007, R-011, R-020, R-021, R-023, R-026, R-041, R-043, R-047, R-056, R-059, R-060, R-061, R-062, R-063, R-064, R-065, R-066. Convergence NOT met (premortem/round-7-replan.md). R-053 and R-055 are Spotify risks deferred with Spotify (D-057). R-043 is an accepted risk; R-020 and R-043 must be accepted by name before READY. Residual ratings are planner estimates adjusted to the round-5 reviewer's ratings.
 
 | ID | Risk | Inherent | Residual | Controls (decision, tests, steps, gates) | Sources |
@@ -74,3 +74,4 @@ Convergence criterion 0 Critical/High residual: NOT met after the final permitte
 
 | R-067 | Master-only YouTube release conflicts with all-targets rule and may exceed playlist cap | High | Medium | D-071,D-073 T-051 S-000a | PM10-001,PM10-003 |
 | R-068 | YouTube matching rule recall unproven before build | High | Medium | D-075 S-000a probe | PM10-005 |
+| R-069 | Collection of about 160,000 tracks cannot be mirrored on YouTube (about 820 days at 196 inserts a day; 5,000-item cap fills in about 25 days) | Critical | Critical | D-065,D-073 S-000a; owner decision needed | S-000a measurement |
