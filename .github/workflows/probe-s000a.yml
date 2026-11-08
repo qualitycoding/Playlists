@@ -26,6 +26,8 @@ jobs:
             done
           } > probe-results/hosts.txt
           cat probe-results/hosts.txt
+      - name: Count public collection (no secrets)
+        run: python3 probe_collection.py
       - name: Commit results
         run: |
           git config user.name "probe-bot"; git config user.email "probe-bot@users.noreply.github.com"
