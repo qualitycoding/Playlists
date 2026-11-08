@@ -118,3 +118,6 @@ PM7-001 -> D-065; PM7-002 -> D-066; PM7-003 -> D-067; PM7-004 -> D-068; PM7-005 
 
 ## Review of the round-7 fixes (2026-11-07, owner: "Yes apply them")
 PM10-001 -> D-071; PM10-002 -> D-072; PM10-003 -> D-073; PM10-004 -> D-074; PM10-005 -> D-075; PM10-006 -> D-076; PM10-007 -> D-077; PM10-008/009 -> D-078; PM10-010 -> propagation to PLAN, OPERATIONS, ASSUMPTIONS, GATES, TRACEABILITY, TEST_PLAN (T-019, T-051, T-055, T-057, T-059, T-069, T-072, T-074), HANDOFF and checker stale phrases. Reviewer: 0 Critical, 3 High before fixes; not re-reviewed. Report: premortem/round-8-review.md.
+
+## Rotation scope (2026-11-08, owner: "200 releases", "both")
+Full sync replaced by Rotation (200 releases) and Recently Added (30) per provider: D-079..D-084. Genre and master playlists removed from release 1. Not independently reviewed.

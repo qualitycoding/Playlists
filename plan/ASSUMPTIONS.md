@@ -6,3 +6,5 @@ A-032 deferred with Spotify (D-057). A-034 (R8) a new individual developer app c
 A-036, A-037 and A-038 deferred with Apple Music (D-062, D-064). A-039 (R9) a YouTube OAuth refresh token for a personal app Testing tokens expire in 7 days (verified, Google Cloud Help 15549945); production-unverified tokens lapse after 6 months of disuse or past 100 live tokens per client (D-078). A-040 (R9) the YouTube Data API default quota of 10,000 units per day, with writes at 50 units and search at 100, covers a weekly sync after a multi-day first sync (costs from Google's documentation, sufficiency unverified). A-041 (R9) a free TIDAL account can create and edit playlists through the official API (unverified; decides whether TIDAL is usable at no cost, D-064).
 
 A-028 measured 2026-11-08 (S-000a): 16,036 collection items, 15,458 distinct releases, about 160,000 tracks (30-release sample, mean 10.0). A-025 YouTube playlist cap still unmeasured. (YouTube per D-062 after D-043.)
+
+A-042 (R11): playlistItems.delete costs 50 quota units on YouTube, like inserts; unverified, to be measured in S-000a (YouTube per D-062, which supersedes D-043.)
